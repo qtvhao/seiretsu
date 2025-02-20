@@ -1,6 +1,8 @@
 import axios from 'axios';
 import fs from 'fs';
 import FormData from 'form-data';
+import path from 'path';
+import crypto from 'crypto';
 
 // Define response types
 interface WordData {
@@ -10,7 +12,7 @@ interface WordData {
     probability: number;
 }
 
-interface TranscriptSegment {
+export interface TranscriptSegment {
     start: number;
     end: number;
     text: string;
@@ -22,15 +24,6 @@ interface AlignmentResponse {
         segments: TranscriptSegment[];
     };
 }
-
-// Utility functions
-const isValidSpeechWord = (text: string): boolean => {
-    const isSpeechWord = !/^[^a-zA-Z0-9]+$/.test(text);
-    if (!isSpeechWord) {
-        console.log('Invalid Speech Word:', { text });
-    }
-    return isSpeechWord;
-};
 
 const areFilesAvailable = (audioFilePath: string, transcriptFilePath: string): boolean => {
     if (!fs.existsSync(audioFilePath) || !fs.existsSync(transcriptFilePath)) {
@@ -62,24 +55,94 @@ const uploadAudioFile = async (formData: FormData): Promise<TranscriptSegment[]>
     }
 };
 
-const handleError = (error: any): void => {
+const handleError = (error: unknown): void => {
     if (axios.isAxiosError(error)) {
         if (error.response) {
             console.error('API Error Response:', error.response.data);
         } else if (error.request) {
             console.error('No response received from API:', error.request);
+        } else {
+            console.error('Axios Error:', error.message);
         }
+    } else if (error instanceof Error) {
+        console.error('Unexpected Error:', error.message);
     } else {
-        console.error('Unexpected Error:', (error as Error).message);
+        console.error('An unknown error occurred:', error);
     }
 };
 
-export const align = async (audioFilePath: string, transcriptFilePath: string): Promise<{segments: TranscriptSegment[]}> => {
-    if (!areFilesAvailable(audioFilePath, transcriptFilePath))
-        throw new Error("x")
-    
-    const formData = prepareFormData(audioFilePath, transcriptFilePath);
-    const segments = await uploadAudioFile(formData);
 
-    return {segments};
+const CACHE_FILE = ('align_cache.json');
+
+export const align = async (audioFilePath: string, transcriptFilePath: string): Promise<{ segments: TranscriptSegment[] }> => {
+    if (!areFilesAvailable(audioFilePath, transcriptFilePath)) {
+        throw new Error("Audio or transcript file not found");
+    }
+
+    const cacheKey = generateCacheKey(audioFilePath, transcriptFilePath);
+    const cachedResult = getCachedResult(cacheKey);
+
+    if (cachedResult) {
+        console.log("Returning cached result...");
+        return cachedResult;
+    }
+
+    const formData = prepareFormData(audioFilePath, transcriptFilePath);
+
+    try {
+        const segments = await uploadAudioFile(formData);
+        const result = { segments };
+
+        cacheResult(cacheKey, result);
+        return result;
+    } catch (error) {
+        throw new Error(`Failed to upload audio file`);
+    }
+};
+
+// Generate a unique hash for caching
+const generateCacheKey = (audioFilePath: string, transcriptFilePath: string): string => {
+    return crypto.createHash('md5').update(audioFilePath + transcriptFilePath).digest('hex');
+};
+
+// Retrieve cached result
+const getCachedResult = (cacheKey: string): { segments: TranscriptSegment[] } | null => {
+    if (!fs.existsSync(CACHE_FILE)) return null;
+
+    try {
+        const cache: Record<string, { segments: TranscriptSegment[] }> = JSON.parse(
+            fs.readFileSync(CACHE_FILE, 'utf-8')
+        );
+        return cache[cacheKey] || null;
+    } catch (error) {
+        console.error("Error reading cache:", error);
+        return null;
+    }
+};
+
+const cache = new Map<string, { segments: TranscriptSegment[] }>();
+
+// Store result in cache
+const cacheResult = (cacheKey: string, data: { segments: TranscriptSegment[] }): void => {
+    let cache: Record<string, { segments: TranscriptSegment[] }> = {};
+
+    if (fs.existsSync(CACHE_FILE)) {
+        try {
+            cache = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf-8')) as Record<
+                string,
+                { segments: TranscriptSegment[] }
+            >;
+        } catch (error) {
+            console.error("Error parsing cache file. Resetting cache.");
+        }
+    }
+
+    cache[cacheKey] = data;
+
+    try {
+        fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2), 'utf-8');
+        console.log("Cache updated.");
+    } catch (error) {
+        console.error("Error writing to cache file:", error);
+    }
 };
