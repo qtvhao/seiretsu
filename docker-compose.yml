@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   stable-ts:
     image: ghcr.io/qtvhao/stable-ts:latest

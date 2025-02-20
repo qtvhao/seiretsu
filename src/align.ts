@@ -74,9 +74,12 @@ const handleError = (error: any): void => {
     }
 };
 
-export const align = async (audioFilePath: string, transcriptFilePath: string): Promise<void> => {
-    if (!areFilesAvailable(audioFilePath, transcriptFilePath)) return;
+export const align = async (audioFilePath: string, transcriptFilePath: string): Promise<{segments: TranscriptSegment[]}> => {
+    if (!areFilesAvailable(audioFilePath, transcriptFilePath))
+        throw new Error("x")
     
     const formData = prepareFormData(audioFilePath, transcriptFilePath);
     const segments = await uploadAudioFile(formData);
+
+    return {segments};
 };
