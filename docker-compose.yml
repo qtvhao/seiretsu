@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  stable-ts:
+    image: ghcr.io/qtvhao/stable-ts:latest
+    container_name: stable_whisper_api
+    ports:
+      - "5000:8000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
