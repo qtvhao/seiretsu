@@ -85,7 +85,7 @@ export class AudioSegmentProcessor {
      * @param expectedTextSegments Expected text segments.
      * @returns Extracted text segments.
      */
-    public async recursiveGetSegmentsFromAudioFile(audioFile: string, expectedTextSegments: string[]): Promise<TextSegment[]> {
+    public async recursiveGetSegmentsFromAudioFile(audioFile: string, expectedTextSegments: string[], stack = 0): Promise<TextSegment[]> {
         if (!expectedTextSegments.length) {
             console.log("ℹ️ No expected text segments provided.");
             return [];
@@ -101,8 +101,13 @@ export class AudioSegmentProcessor {
         
         let additionalSegments: TextSegment[] = [];
         if (remainingText.length > 0) {
-            console.log("🔁 Continuing recursion with remaining text.");
-            additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText);
+            console.log("🔁 Continuing recursion with remaining text.", {
+                trimmedAudio,
+                remainingText,
+            });
+            if (stack < 1) {
+                additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText, stack + 1);
+            }
         }
         
         console.log("✅ Processing complete.");

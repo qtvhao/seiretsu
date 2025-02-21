@@ -116,10 +116,14 @@ export class BestSentenceMatcher {
         this.log("🚀 Starting segment match process...");
 
         const filteredSegments = this.dynamicallyAdjustTolerance(minTolerance);
-        if (filteredSegments.length === 0) return [[], null, this.expectedSentences, []];
+        if (filteredSegments.length === 0) {
+            return [[], null, this.expectedSentences, []];
+        }
 
         const [matchedSentences, remainingSentences] = this.findBestSentenceMatch(filteredSegments);
-        if (matchedSentences.length === 0) return [[], null, remainingSentences, []];
+        if (matchedSentences.length === 0) {
+            return [[], null, remainingSentences, []];
+        }
 
         const [bestMatchSegments, lastMatchedSegmentTime] = this.findOptimalMatchingSegments(filteredSegments, matchedSentences);
 

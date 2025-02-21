@@ -4,7 +4,10 @@ services:
     container_name: stable_whisper_api
     ports:
       - "5000:8000"
+    volumes:
+      - ./.cache/:/root/.cache/
     environment:
+      - STABLE_TS_MODEL=small
       - FLASK_APP=app.py
       - FLASK_ENV=production
     restart: unless-stopped
