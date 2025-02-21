@@ -57,7 +57,7 @@ export class BestSentenceMatcher {
         return distance;
     }
 
-    private findBestSentenceMatch(filteredSegments: TextSegment[]): [string[], string[]] {
+    public findBestSentenceMatch(filteredSegments: TextSegment[]): [string[], string[]] {
         this.log("🔍 Finding best sentence match...");
 
         if (filteredSegments.length === 0) {

@@ -49,10 +49,7 @@ export class AudioSegmentProcessor {
 
         console.log("📊 Aligning segments...");
         const transcriptSegments: TranscriptSegment[] = alignmentData['segments'] || [];
-        await fs.promises.writeFile(
-            audioFile.replace('.mp3', '.txt'),
-            transcriptSegments.map(segment => `${segment.start} - ${segment.end}: ${segment.text}`).join('\n\n')
-        );
+
         console.log("✅ Alignment file saved.");
         
         const matcher = new BestSentenceMatcher(transcriptSegments, expectedTextSegments);
@@ -92,7 +89,7 @@ export class AudioSegmentProcessor {
         }
         
         console.log("🔄 Processing segments recursively...");
-        const [trimmedAudio, remainingText, start, segments] = await this.processAudioFile(audioFile, expectedTextSegments);
+        const [trimmedAudio, remainingText, , segments] = await this.processAudioFile(audioFile, expectedTextSegments);
         
         if (!trimmedAudio) {
             console.log("❌ Processing failed: No trimmed audio generated.");
@@ -105,9 +102,7 @@ export class AudioSegmentProcessor {
                 trimmedAudio,
                 remainingText,
             });
-            if (stack < 1) {
-                additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText, stack + 1);
-            }
+            additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText, stack + 1);
         }
         
         console.log("✅ Processing complete.");

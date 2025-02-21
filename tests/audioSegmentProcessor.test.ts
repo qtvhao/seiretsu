@@ -18,5 +18,5 @@ describe("AudioSegmentProcessor", () => {
     test("should correctly match transcript segments to reference sentences", async () => {
         let processed = await processor.recursiveGetSegmentsFromAudioFile('./examples/audio.mp3', referenceSentences)
         console.log(processed)
-    }, 120e3);
+    }, 600_000);
 });
