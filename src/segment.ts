@@ -1,20 +1,8 @@
 import levenshtein from 'fast-levenshtein';
 import { WordData } from './align';
+import { stripMarkdownFormatting } from './utils'
 
 const MAX_SNIPPET_WORDS = 12;
-
-function stripMarkdownFormatting(inputText: string): string {
-    return inputText
-        .replace(/`(.*?)`/g, "$1") // Inline code
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1") // Links: [text](url) → text
-        .replace(/#+\s*(.*)/g, "$1") // Headers: # Header → Header
-        .replace(/\*\*(.*?)\*\*/g, "$1") // Bold: **bold** → bold
-        .replace(/__(.*?)__/g, "$1") // Bold: __bold__ → bold
-        .replace(/\*(.*?)\*/g, "$1") // Italic: *italic* → italic
-        .replace(/_(.*?)_/g, "$1") // Italic: _italic_ → italic
-        .replace(/[^\w\s]/g, "") // Remove punctuation
-        .trim();
-}
 
 export class TextSegment {
     rawText: string;
