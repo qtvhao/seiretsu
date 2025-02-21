@@ -11,6 +11,7 @@ export class Segment {
     segmentList: TranscriptSegment[];
     lastWordsSnippet: string;
     lastWordsCount: number;
+    wordsArray: string[];
 
     constructor(segmentText: string, endTime: number, startTime: number, wordList: WordData[] = [], segmentList: TranscriptSegment[] = []) {
         if (!Array.isArray(segmentList)) {
@@ -24,18 +25,21 @@ export class Segment {
         this.wordList = wordList;
 
         // Normalize and extract the last snippet of words
-        const wordsArray = segmentText.split(/\s+/);
-        this.lastWordsSnippet = wordsArray.slice(-WORD_SNIPPET_LIMIT).join(" ");
+        this.wordsArray = segmentText.toLowerCase().split(/\s+/);
+        this.lastWordsSnippet = this.wordsArray.slice(-WORD_SNIPPET_LIMIT).join(" ");
         this.lastWordsCount = this.lastWordsSnippet.split(/\s+/).length;
     }
 
     calculateDistance(sentenceList: string[]): number {
         const fullSentence = sentenceList.join(" ").trim().toLowerCase();
         const sentenceWords = fullSentence.split(/\s+/);
+
+        const shorterLastWordsCount = Math.min(sentenceWords.length, this.lastWordsCount)
         
         // Extract the last `lastWordsCount` words from the sentence
-        const lastSentenceSnippet = sentenceWords.slice(-this.lastWordsCount).join(" ");
+        const lastSentenceSnippet = sentenceWords.slice(-shorterLastWordsCount).join(" ");
+        console.log([this.wordsArray.slice(-shorterLastWordsCount).join(" "), lastSentenceSnippet])
         
-        return levenshtein.get(this.lastWordsSnippet.toLowerCase(), lastSentenceSnippet);
+        return levenshtein.get(this.wordsArray.slice(-shorterLastWordsCount).join(" "), lastSentenceSnippet);
     }
 }
