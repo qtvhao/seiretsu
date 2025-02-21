@@ -1,17 +1,34 @@
-import { Segment } from '../src/segment';
+import { TextSegment } from '../src/segment';
 
 describe('Segment Class', () => {
-    test('calculateDistance should return correct Levenshtein distance', () => {
-        const segment = new Segment('Test case', 10, 0, [], []);
+    test('computeLevenshteinDistance should return correct Levenshtein distance', () => {
+        const segment = new TextSegment('Test case');
 
-        const distance = segment.calculateDistance(['Another test case example']);
+        const distance = segment.computeLevenshteinDistance(['Another test case example']);
         expect(distance).toBe(8);
     });
 
-    test('calculateDistance should handle case insensitivity', () => {
-        const segment = new Segment('Hello World', 10, 0, [], []);
+    test('computeLevenshteinDistance should handle case insensitivity', () => {
+        const segment = new TextSegment('Hello World');
 
-        const distance = segment.calculateDistance(['HELLO WORLD']);
+        const distance = segment.computeLevenshteinDistance(['HELLO WORLD']);
+        expect(distance).toBe(0);
+    });
+
+    test('computeLevenshteinDistance should handle long sentence vs short sentence with same ending', () => {
+        const longSentence = "This is a very long sentence that has a lot of words but ends the same way as the short sentence.";
+        const shortSentence = " way as the short sentence.";
+    
+        const segment = new TextSegment(longSentence);
+        const distance = segment.computeLevenshteinDistance(['ends the same', shortSentence]);
+        expect(distance).toBe(0);
+    });
+
+    test('computeLevenshteinDistance should handle markdown syntax differences', () => {
+        const segment = new TextSegment('This is a **bold** and *italic* test');
+    
+        const distance = segment.computeLevenshteinDistance(['This is a __bold__ and _italic_ test']);
+    
         expect(distance).toBe(0);
     });
 });

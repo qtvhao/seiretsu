@@ -1,45 +1,43 @@
 import levenshtein from 'fast-levenshtein';
-import { WordData, TranscriptSegment } from './align';
 
-const WORD_SNIPPET_LIMIT = 12;
+const MAX_SNIPPET_WORDS = 12;
 
-export class Segment {
-    segmentText: string;
-    startTime: number;
-    endTime: number;
-    wordList: WordData[];
-    segmentList: TranscriptSegment[];
-    lastWordsSnippet: string;
-    lastWordsCount: number;
-    wordsArray: string[];
+function stripMarkdownFormatting(inputText: string): string {
+    return inputText
+        .replace(/`(.*?)`/g, "$1") // Inline code
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1") // Links: [text](url) → text
+        .replace(/#+\s*(.*)/g, "$1") // Headers: # Header → Header
+        .replace(/\*\*(.*?)\*\*/g, "$1") // Bold: **bold** → bold
+        .replace(/__(.*?)__/g, "$1") // Bold: __bold__ → bold
+        .replace(/\*(.*?)\*/g, "$1") // Italic: *italic* → italic
+        .replace(/_(.*?)_/g, "$1") // Italic: _italic_ → italic
+        .replace(/[^\w\s]/g, "") // Remove punctuation
+        .trim();
+}
 
-    constructor(segmentText: string, endTime: number, startTime: number, wordList: WordData[] = [], segmentList: TranscriptSegment[] = []) {
-        if (!Array.isArray(segmentList)) {
-            throw new Error("segmentList must be an array.");
-        }
-        this.segmentList = segmentList;
+export class TextSegment {
+    rawText: string;
+    snippetWordCount: number;
+    wordTokens: string[];
 
-        this.segmentText = segmentText;
-        this.endTime = endTime;
-        this.startTime = startTime;
-        this.wordList = wordList;
+    constructor(rawText: string) {
+        this.rawText = stripMarkdownFormatting(rawText);
 
         // Normalize and extract the last snippet of words
-        this.wordsArray = segmentText.toLowerCase().split(/\s+/);
-        this.lastWordsSnippet = this.wordsArray.slice(-WORD_SNIPPET_LIMIT).join(" ");
-        this.lastWordsCount = this.lastWordsSnippet.split(/\s+/).length;
+        this.wordTokens = this.rawText.toLowerCase().split(/\s+/).slice(-MAX_SNIPPET_WORDS);
+        this.snippetWordCount = this.wordTokens.join(" ").split(/\s+/).length;
     }
 
-    calculateDistance(sentenceList: string[]): number {
-        const fullSentence = sentenceList.join(" ").trim().toLowerCase();
-        const sentenceWords = fullSentence.split(/\s+/);
+    computeLevenshteinDistance(referenceSentences: string[]): number {
+        const normalizedReference = referenceSentences.join(" ").trim().toLowerCase();
+        const referenceWords = stripMarkdownFormatting(normalizedReference).split(/\s+/);
 
-        const shorterLastWordsCount = Math.min(sentenceWords.length, this.lastWordsCount)
+        const relevantWordCount = Math.min(referenceWords.length, this.snippetWordCount);
         
-        // Extract the last `lastWordsCount` words from the sentence
-        const lastSentenceSnippet = sentenceWords.slice(-shorterLastWordsCount).join(" ");
-        console.log([this.wordsArray.slice(-shorterLastWordsCount).join(" "), lastSentenceSnippet])
-        
-        return levenshtein.get(this.wordsArray.slice(-shorterLastWordsCount).join(" "), lastSentenceSnippet);
+        // Extract the last snippet
+        const referenceSnippet = referenceWords.slice(-relevantWordCount).join(" ");
+        const segmentSnippet = this.wordTokens.slice(-relevantWordCount).join(" ");
+
+        return levenshtein.get(segmentSnippet, referenceSnippet);
     }
 }
