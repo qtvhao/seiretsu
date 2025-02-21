@@ -13,6 +13,7 @@ export class AudioSegmentProcessor {
     constructor() {
         if (!fs.existsSync(this.ffmpegPath)) {
             this.ffmpegPath = 'ffmpeg';
+            console.log("⚠️ FFmpeg not found at default path, using fallback.");
         }
     }
 
@@ -27,6 +28,7 @@ export class AudioSegmentProcessor {
         audioFile: string, 
         expectedTextSegments: string[], 
     ): Promise<[string | null, string[], number | null, TextSegment[]]> {
+        console.log("🎤 Processing audio file:", audioFile);
         const alignmentResult = await align(audioFile, expectedTextSegments.join('\n\n'));
         return await this.processAlignedSegments(audioFile, expectedTextSegments, alignmentResult);
     }
@@ -45,25 +47,33 @@ export class AudioSegmentProcessor {
         alignmentData: { segments: TranscriptSegment[] }
     ): Promise<[string | null, string[], number | null, TextSegment[]]> {
 
+        console.log("📊 Aligning segments...");
         const transcriptSegments: TranscriptSegment[] = alignmentData['segments'] || [];
         await fs.promises.writeFile(
             audioFile.replace('.mp3', '.txt'),
             transcriptSegments.map(segment => `${segment.start} - ${segment.end}: ${segment.text}`).join('\n\n')
         );
+        console.log("✅ Alignment file saved.");
         
         const matcher = new BestSentenceMatcher(transcriptSegments, expectedTextSegments);
         const [matchedSegments, lastSegmentEnd, remainingText]: [TextSegment[], number | null, string[], any[]] = matcher.findBestMatch(0.2);
         
         if (lastSegmentEnd === null) {
             if (remainingText.length > 0) {
+                console.log("❌ Alignment failed: No segments found but remaining text exists.");
                 throw new Error("Alignment failed: no segments found, but remaining text is not empty.");
-            }else{
+            } else {
+                console.log("ℹ️ No remaining text, returning empty result.");
                 return [null, [], null, []];
             }
         }
+        console.log("🎯 Matched segments found, trimming audio if needed.");
         let startTimestamp: number = lastSegmentEnd;
         
         const trimmedAudioFile: string | null = remainingText.length > 0 ? await cutAudioFile(audioFile, lastSegmentEnd) : null;
+        if (trimmedAudioFile) {
+            console.log("✂️ Audio trimmed:", trimmedAudioFile);
+        }
         
         return [trimmedAudioFile, remainingText, startTimestamp, matchedSegments];
     }
@@ -77,20 +87,25 @@ export class AudioSegmentProcessor {
      */
     public async recursiveGetSegmentsFromAudioFile(audioFile: string, expectedTextSegments: string[]): Promise<TextSegment[]> {
         if (!expectedTextSegments.length) {
+            console.log("ℹ️ No expected text segments provided.");
             return [];
         }
         
+        console.log("🔄 Processing segments recursively...");
         const [trimmedAudio, remainingText, start, segments] = await this.processAudioFile(audioFile, expectedTextSegments);
         
         if (!trimmedAudio) {
+            console.log("❌ Processing failed: No trimmed audio generated.");
             throw new Error("Processing failed: no trimmed audio generated.");
         }
         
         let additionalSegments: TextSegment[] = [];
         if (remainingText.length > 0) {
+            console.log("🔁 Continuing recursion with remaining text.");
             additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText);
         }
         
+        console.log("✅ Processing complete.");
         return segments.concat(additionalSegments);
     }
 }

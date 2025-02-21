@@ -1,5 +1,5 @@
 import { BestSentenceMatcher } from "../src/bestSentenceMatcher";
-import { TranscriptSegment } from "../src/align";
+import { TranscriptSegment, WordData } from "../src/align";
 
 describe("BestSentenceMatcher", () => {
     let transcriptSegments: TranscriptSegment[];
@@ -315,5 +315,25 @@ describe("BestSentenceMatcher", () => {
         expect(processedSentences.length).toBeGreaterThan(0);
         expect(bestMatchEndTime).toBeGreaterThan(5.86)
         expect(remainingSentences).toHaveLength(0)
+    });
+    test("should handle last transcript segment with all words having probability 0.1", () => {
+        // Deep clone transcriptSegments to avoid modifying the original array
+        const clonedTranscriptSegments = JSON.parse(JSON.stringify(transcriptSegments));
+    
+        // Modify the last segment so that all words have probability 0.1
+        clonedTranscriptSegments[clonedTranscriptSegments.length - 1].words.forEach((word: WordData) => {
+            word.probability = 0.1;
+        });
+    
+        const matcher = new BestSentenceMatcher(clonedTranscriptSegments, referenceSentences);
+        const [matchedSegments, bestMatchEndTime, remainingSentences, processedSentences] = matcher.findBestMatch(0.2);
+    
+        // Check that some segments are still matched
+        expect(matchedSegments.length).toEqual(3);
+        expect(bestMatchEndTime).toEqual(7.92);
+    
+        // Check that processing still occurs correctly
+        expect(remainingSentences.length).toEqual(1);
+        expect(processedSentences.length).toEqual(3);
     });
 });
