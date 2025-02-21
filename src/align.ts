@@ -1,11 +1,11 @@
 import axios from 'axios';
 import fs from 'fs';
 import FormData from 'form-data';
-import path from 'path';
 import crypto from 'crypto';
+import * as stream from 'stream';
 
 // Define response types
-interface WordData {
+export interface WordData {
     word: string;
     start: number;
     end: number;
@@ -25,18 +25,30 @@ interface AlignmentResponse {
     };
 }
 
-const areFilesAvailable = (audioFilePath: string, transcriptFilePath: string): boolean => {
-    if (!fs.existsSync(audioFilePath) || !fs.existsSync(transcriptFilePath)) {
+const areFilesAvailable = (audioFilePath: string): boolean => {
+    if (!fs.existsSync(audioFilePath)) {
         console.error('Error: Missing one or both required files.');
         return false;
     }
     return true;
 };
 
-const prepareFormData = (audioFilePath: string, transcriptFilePath: string): FormData => {
+const prepareFormData = (audioFilePath: string, transcription: string): FormData => {
+    if (!fs.existsSync(audioFilePath)) {
+        throw new Error(`File not found: ${audioFilePath}`);
+    }
+
+    const audioStream: fs.ReadStream = fs.createReadStream(audioFilePath);
+
+    // Create a Readable stream for the transcription text
+    const textStream = new stream.Readable();
+    textStream.push(transcription);
+    textStream.push(null); // End the stream
+
     const formData = new FormData();
-    formData.append('audio_file', fs.createReadStream(audioFilePath));
-    formData.append('text', fs.createReadStream(transcriptFilePath));
+    formData.append('audio_file', audioStream);
+    formData.append('text', textStream, { filename: 'transcription.txt', contentType: 'text/plain' });
+
     return formData;
 };
 
@@ -74,12 +86,12 @@ const handleError = (error: unknown): void => {
 
 const CACHE_FILE = ('align_cache.json');
 
-export const align = async (audioFilePath: string, transcriptFilePath: string): Promise<{ segments: TranscriptSegment[] }> => {
-    if (!areFilesAvailable(audioFilePath, transcriptFilePath)) {
+export const align = async (audioFilePath: string, transcription: string): Promise<{ segments: TranscriptSegment[] }> => {
+    if (!areFilesAvailable(audioFilePath)) {
         throw new Error("Audio or transcript file not found");
     }
 
-    const cacheKey = generateCacheKey(audioFilePath, transcriptFilePath);
+    const cacheKey = generateCacheKey(audioFilePath, transcription);
     const cachedResult = getCachedResult(cacheKey);
 
     if (cachedResult) {
@@ -87,7 +99,7 @@ export const align = async (audioFilePath: string, transcriptFilePath: string): 
         return cachedResult;
     }
 
-    const formData = prepareFormData(audioFilePath, transcriptFilePath);
+    const formData = prepareFormData(audioFilePath, transcription);
 
     try {
         const segments = await uploadAudioFile(formData);
