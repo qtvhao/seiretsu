@@ -3,6 +3,7 @@ import fs from 'fs';
 import FormData from 'form-data';
 import crypto from 'crypto';
 import * as stream from 'stream';
+import path from 'path';
 
 // Define response types
 export interface WordData {
@@ -25,9 +26,53 @@ interface AlignmentResponse {
     };
 }
 
+const CACHE_DIR = 'cache';
+
+// Ensure cache directory exists
+const ensureCacheDirExists = () => {
+    if (!fs.existsSync(CACHE_DIR)) {
+        fs.mkdirSync(CACHE_DIR, { recursive: true });
+    }
+};
+
+// Generate a unique cache filename based on content hash
+const generateCacheKey = (audioFilePath: string, transcription: string): string => {
+    return crypto.createHash('md5').update(audioFilePath + transcription).digest('hex');
+};
+
+// Retrieve cached result from cache directory
+const getCachedResult = (cacheKey: string): { segments: TranscriptSegment[] } | null => {
+    ensureCacheDirExists();
+    
+    const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
+    if (!fs.existsSync(cacheFilePath)) return null;
+
+    try {
+        const cacheData = JSON.parse(fs.readFileSync(cacheFilePath, 'utf-8'));
+        return cacheData;
+    } catch (error) {
+        console.error(`Error reading cache file: ${cacheFilePath}`, error);
+        return null;
+    }
+};
+
+// Store result in a separate cache file
+const cacheResult = (cacheKey: string, data: { segments: TranscriptSegment[] }): void => {
+    ensureCacheDirExists();
+
+    const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
+
+    try {
+        fs.writeFileSync(cacheFilePath, JSON.stringify(data, null, 2), 'utf-8');
+        console.log(`Cached result saved: ${cacheFilePath}`);
+    } catch (error) {
+        console.error(`Error writing to cache file: ${cacheFilePath}`, error);
+    }
+};
+
 const areFilesAvailable = (audioFilePath: string): boolean => {
     if (!fs.existsSync(audioFilePath)) {
-        console.error('Error: Missing one or both required files.');
+        console.error('Error: Missing required audio file.');
         return false;
     }
     return true;
@@ -39,11 +84,9 @@ const prepareFormData = (audioFilePath: string, transcription: string): FormData
     }
 
     const audioStream: fs.ReadStream = fs.createReadStream(audioFilePath);
-
-    // Create a Readable stream for the transcription text
-    const textStream = new stream.Readable();
-    textStream.push(transcription);
-    textStream.push(null); // End the stream
+    const textBuffer = Buffer.from(transcription, 'utf-8');
+    const textStream = new stream.PassThrough();
+    textStream.end(textBuffer);
 
     const formData = new FormData();
     formData.append('audio_file', audioStream);
@@ -60,6 +103,11 @@ const uploadAudioFile = async (formData: FormData): Promise<TranscriptSegment[]>
                 'Content-Type': 'multipart/form-data',
             },
         });
+
+        if (!response.data || !response.data.alignment) {
+            throw new Error("Invalid API response format.");
+        }
+
         return response.data.alignment.segments;
     } catch (error: any) {
         handleError(error);
@@ -83,12 +131,9 @@ const handleError = (error: unknown): void => {
     }
 };
 
-
-const CACHE_FILE = ('align_cache.json');
-
 export const align = async (audioFilePath: string, transcription: string): Promise<{ segments: TranscriptSegment[] }> => {
     if (!areFilesAvailable(audioFilePath)) {
-        throw new Error("Audio or transcript file not found");
+        throw new Error("Audio file not found");
     }
 
     const cacheKey = generateCacheKey(audioFilePath, transcription);
@@ -109,52 +154,5 @@ export const align = async (audioFilePath: string, transcription: string): Promi
         return result;
     } catch (error) {
         throw new Error(`Failed to upload audio file`);
-    }
-};
-
-// Generate a unique hash for caching
-const generateCacheKey = (audioFilePath: string, transcriptFilePath: string): string => {
-    return crypto.createHash('md5').update(audioFilePath + transcriptFilePath).digest('hex');
-};
-
-// Retrieve cached result
-const getCachedResult = (cacheKey: string): { segments: TranscriptSegment[] } | null => {
-    if (!fs.existsSync(CACHE_FILE)) return null;
-
-    try {
-        const cache: Record<string, { segments: TranscriptSegment[] }> = JSON.parse(
-            fs.readFileSync(CACHE_FILE, 'utf-8')
-        );
-        return cache[cacheKey] || null;
-    } catch (error) {
-        console.error("Error reading cache:", error);
-        return null;
-    }
-};
-
-const cache = new Map<string, { segments: TranscriptSegment[] }>();
-
-// Store result in cache
-const cacheResult = (cacheKey: string, data: { segments: TranscriptSegment[] }): void => {
-    let cache: Record<string, { segments: TranscriptSegment[] }> = {};
-
-    if (fs.existsSync(CACHE_FILE)) {
-        try {
-            cache = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf-8')) as Record<
-                string,
-                { segments: TranscriptSegment[] }
-            >;
-        } catch (error) {
-            console.error("Error parsing cache file. Resetting cache.");
-        }
-    }
-
-    cache[cacheKey] = data;
-
-    try {
-        fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2), 'utf-8');
-        console.log("Cache updated.");
-    } catch (error) {
-        console.error("Error writing to cache file:", error);
     }
 };

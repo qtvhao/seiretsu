@@ -16,6 +16,11 @@ export function stripMarkdownFormatting(inputText: string): string {
         .trim();
 }
 
+export function splitMarkdown(text: string): string[] {
+    return text.split(/\n|(?<=[.,!?;:])\s*/g).filter(Boolean);
+}
+
+
 export async function cutAudioFile(audioFile: string, start: number, end?: number): Promise<string> {
     if (!fs.existsSync(audioFile)) {
         throw new Error("Audio file does not exist.");
