@@ -14,6 +14,11 @@ describe("AudioSegmentProcessor", () => {
         let transcript = fs.readFileSync(transcriptTxt).toString();
         referenceSentences = splitMarkdown(stripMarkdownFormatting(transcript))
     });
+    test("should correctly match transcript segments to reference sentences 2", async () => {
+        let referenceSentences = JSON.parse(fs.readFileSync('./examples/transcript-2.json').toString())
+        let processed = await processor.recursiveGetSegmentsFromAudioFile('./examples/audio-2.mp3', referenceSentences)
+        console.log(processed)
+    }, 600_000);
 
     test("should correctly match transcript segments to reference sentences", async () => {
         let processed = await processor.recursiveGetSegmentsFromAudioFile('./examples/audio.mp3', referenceSentences)
