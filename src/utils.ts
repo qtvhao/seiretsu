@@ -6,7 +6,9 @@ const execPromise = promisify(exec);
 
 export function stripMarkdownFormatting(inputText: string): string {
     return inputText
-        .replace(/([^\.\n])\s*\n/g, "$1.\n")
+        .replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '')
+        .replace(/\:\s*\n/g, ".\n")
+        .replace(/([^\.\:\!\n])\s*\n/g, "$1.\n")
         .replace(/`(.*?)`/g, "$1") // Inline code
         .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1") // Links: [text](url) → text
         .replace(/#+\s*(.*)\s*\n/g, "$1\n") // Headers: # Header → Header
@@ -16,12 +18,11 @@ export function stripMarkdownFormatting(inputText: string): string {
         .replace(/\*(.*?)\*/g, "$1") // Italic: *italic* → italic
         .replace(/_(.*?)_/g, "$1") // Italic: _italic_ → italic
         .replace(/(\d+)\. /g, "$1 ")
-        .replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '')
         .trim();
 }
 
 export function splitMarkdown(text: string): string[] {
-    return text.split(/\n|(?<=[.!?;:])\s*/g).filter(Boolean);
+    return text.split(/\n|(?<=[.!?;])\s*/g).filter(Boolean);
 }
 
 

@@ -34,20 +34,6 @@ export class BestSentenceMatcher {
         return new ValidSegmentsExtractor(tolerance).extractValidSegments(this.transcriptEntries);
     }
 
-    private dynamicallyAdjustTolerance(minTolerance: number): TextSegment[] {
-        this.log("🧪 Adjusting tolerance to find valid segments...");
-        let tolerance = 0.9;
-        let filteredSegments: TextSegment[] = [];
-
-        while (filteredSegments.length === 0 && tolerance >= minTolerance) {
-            filteredSegments = this.extractSegmentsWithTolerance(tolerance);
-            tolerance = Math.max(minTolerance, parseFloat((tolerance * 0.9).toFixed(3))); // Adjust dynamically
-        }
-
-        if (filteredSegments.length === 0) this.log("🚨 No valid segments found.");
-        return filteredSegments;
-    }
-
     private computeLevenshtein(sentence: string, segment: TextSegment): number {
         const key = `${sentence}-${segment.rawText}`;
         if (this.levenshteinCache.has(key)) return this.levenshteinCache.get(key)!;
@@ -114,17 +100,30 @@ export class BestSentenceMatcher {
 
     public findBestMatch(minTolerance: number): [TextSegment[], number | null, string[], string[]] {
         this.log("🚀 Starting segment match process...");
-
-        const filteredSegments = this.dynamicallyAdjustTolerance(minTolerance);
-        if (filteredSegments.length === 0) {
+        
+        let tolerance = 0.9;
+        let filteredSegments: TextSegment[] = [];
+        let matchedSentences: string[] = [];
+        let remainingSentences: string[] = [];
+    
+        while (tolerance >= minTolerance) {
+            filteredSegments = this.extractSegmentsWithTolerance(tolerance);
+            
+            if (filteredSegments.length > 0) {
+                [matchedSentences, remainingSentences] = this.findBestSentenceMatch(filteredSegments);
+                if (matchedSentences.length > 0) {
+                    break; // Valid match found, exit loop
+                }
+            }
+    
+            tolerance = parseFloat((tolerance * 0.9).toFixed(3));
+        }
+    
+        if (matchedSentences.length === 0) {
+            this.log("🚨 No valid segments found.");
             return [[], null, this.expectedSentences, []];
         }
-
-        const [matchedSentences, remainingSentences] = this.findBestSentenceMatch(filteredSegments);
-        if (matchedSentences.length === 0) {
-            return [[], null, remainingSentences, []];
-        }
-
+    
         const [bestMatchSegments, lastMatchedSegmentTime] = this.findOptimalMatchingSegments(filteredSegments, matchedSentences);
 
         return [bestMatchSegments, lastMatchedSegmentTime, remainingSentences, matchedSentences];

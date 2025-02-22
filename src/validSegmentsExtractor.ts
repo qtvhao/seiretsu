@@ -18,16 +18,18 @@ export class ValidSegmentsExtractor {
     extractValidSegments(segments: TextSegment[]): TextSegment[] {
         /**
          * Extracts valid segments from the provided list.
-         * Stops at the first invalid segment.
+         * Stops at the first invalid segment unless the concatenated text (excluding spaces) is less than 3 characters.
          * @param segments List of TextSegment objects.
          * @returns Array of valid segments.
          */
         const validSegments: TextSegment[] = [];
+        let concatenatedText = "";
 
         for (const segment of segments) {
-            if (!this.isSegmentValid(segment)) {
-                break; // Stop processing at the first invalid segment
+            if (!this.isSegmentValid(segment) && concatenatedText.replace(/\s/g, "").length >= 3) {
+                break; // Stop processing at the first invalid segment unless condition is met
             }
+            concatenatedText += segment.rawText;
             validSegments.push(segment);
         }
 
