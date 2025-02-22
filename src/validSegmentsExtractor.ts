@@ -50,7 +50,7 @@ export class ValidSegmentsExtractor {
             return false;
         }
 
-        const avgProbability = ValidSegmentsExtractor.calculateAverageProbability(segment.words);
+        const avgProbability = segment.avgProbability
         const textLength = segment.rawText.trim().length;
 
         this.logValidationDetails(segment, avgProbability);
@@ -64,17 +64,6 @@ export class ValidSegmentsExtractor {
         this.logValidation(segment, isValid ? 'Accepted: Probability within threshold' : `Rejected: Probability too low (${avgProbability} ≤ ${this.probabilityThreshold})`);
 
         return isValid;
-    }
-
-    static calculateAverageProbability(words: { probability: number }[]): number {
-        /**
-         * Computes the average probability for a list of words.
-         * @param words Array of objects containing 'probability' values.
-         * @returns The rounded average probability.
-         */
-        if (words.length === 0) return 0;
-        const totalProbability = words.reduce((sum, word) => sum + word.probability, 0);
-        return +(totalProbability / words.length).toFixed(3); // Ensures 3 decimal places
     }
 
     static isEndSegment(segment: TextSegment): boolean {
@@ -105,21 +94,6 @@ export class ValidSegmentsExtractor {
          */
         if (this.enableDebugLogging) {
             console.log(`Validation Status: ${status}, Text: '${segment.rawText.trim()}'`);
-        }
-    }
-
-    async loadSegmentsFromFile(filePath: string): Promise<TextSegment[]> {
-        /**
-         * Asynchronously loads segments from a JSON file.
-         * @param filePath The file path of the JSON file.
-         * @returns A Promise that resolves to an array of TextSegment objects.
-         */
-        try {
-            const fileContent = await fs.promises.readFile(filePath, 'utf8');
-            return JSON.parse(fileContent) as TextSegment[];
-        } catch (error) {
-            console.error(`Error loading segments from file: ${filePath}`, error);
-            return [];
         }
     }
 }

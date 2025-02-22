@@ -6,14 +6,17 @@ const execPromise = promisify(exec);
 
 export function stripMarkdownFormatting(inputText: string): string {
     return inputText
+        .replace(/([^\.\n])\s*\n/g, "$1.\n")
         .replace(/`(.*?)`/g, "$1") // Inline code
         .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1") // Links: [text](url) → text
-        .replace(/#+\s*(.*)\s*/g, "$1.") // Headers: # Header → Header
+        .replace(/#+\s*(.*)\s*\n/g, "$1\n") // Headers: # Header → Header
+        .replace(/-\s*(.*)\n/g, "$1\n") // 
         .replace(/\*\*(.*?)\*\*/g, "$1") // Bold: **bold** → bold
         .replace(/__(.*?)__/g, "$1") // Bold: __bold__ → bold
         .replace(/\*(.*?)\*/g, "$1") // Italic: *italic* → italic
         .replace(/_(.*?)_/g, "$1") // Italic: _italic_ → italic
         .replace(/(\d+)\. /g, "$1 ")
+        .replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '')
         .trim();
 }
 
