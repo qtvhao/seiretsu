@@ -19,7 +19,7 @@ describe("AudioSegmentProcessor", () => {
         let expectedTextSegments = JSON.parse(fs.readFileSync('./examples/audioSegmentProcessor-expectedTextSegments-1.json').toString())
         let alignmentResult = JSON.parse(fs.readFileSync('./examples/audioSegmentProcessor-alignmentResult-1.json').toString())
         // 
-        const [trimmedAudio, remainingText, , segments] = await processor.processAlignedSegments(audioFile, expectedTextSegments, alignmentResult, 0)
+        const [trimmedAudio, remainingText, , segments] = await processor.processAlignedSegments(audioFile, expectedTextSegments, alignmentResult)
         expect(remainingText).not.toHaveLength(0)
         expect(segments[segments.length - 1].rawText).toEqual("thích hợp với khí hậu lạnh.")
     })

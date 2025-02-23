@@ -7,8 +7,12 @@ const execPromise = promisify(exec);
 export function stripMarkdownFormatting(inputText: string): string {
     return inputText
         .replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '')
+        // Replace colon at the end of a line with a period
+        .replace(/:\s*\n/g, ".\n")
+        // Replace exclamation mark at the end of a line with a period
+        .replace(/!\s*\n/g, ".\n")
         .replace(/\:\s*\n/g, ".\n")
-        .replace(/([^\.\:\!\n])\s*\n/g, "$1.\n")
+        .replace(/([^\.\n])\s*\n/g, "$1.\n")
         .replace(/`(.*?)`/g, "$1") // Inline code
         .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1") // Links: [text](url) → text
         .replace(/#+\s*(.*)\s*\n/g, "$1\n") // Headers: # Header → Header
