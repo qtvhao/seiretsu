@@ -4,6 +4,12 @@ import FormData from 'form-data';
 import crypto from 'crypto';
 import * as stream from 'stream';
 import path from 'path';
+import { tmpdir } from 'os';
+import { join } from 'path';
+import { exec } from 'child_process';
+import util from 'util';
+
+const execPromise = util.promisify(exec);
 
 // Define response types
 export interface WordData {
@@ -131,12 +137,39 @@ const handleError = (error: unknown): void => {
     }
 };
 
+const getAudioDuration = async (audioFilePath: string): Promise<number> => {
+    try {
+        const { stdout } = await execPromise(`ffprobe -i "${audioFilePath}" -show_entries format=duration -v quiet -of csv="p=0"`);
+        return parseFloat(stdout.trim());
+    } catch (error) {
+        throw new Error("Failed to get audio duration");
+    }
+};
+
+const trimAudioFile = async (inputPath: string, outputPath: string, start: number, duration: number): Promise<string> => {
+    try {
+        await execPromise(`ffmpeg -i "${inputPath}" -ss ${start} -t ${duration} -c copy "${outputPath}"`);
+        return outputPath;
+    } catch (error) {
+        throw new Error("Failed to trim audio file");
+    }
+};
+
 export const align = async (audioFilePath: string, transcription: string): Promise<{ segments: TranscriptSegment[] }> => {
     if (!areFilesAvailable(audioFilePath)) {
         throw new Error("Audio file not found");
     }
 
-    const cacheKey = generateCacheKey(audioFilePath, transcription);
+    let processedAudioFilePath = audioFilePath;
+    // If we don't cut the audio, it take 8m12.332s
+    // If we cut the audio, it takes 4m37.843s on the same hardware
+    const duration = await getAudioDuration(audioFilePath);
+    if (duration > 20) {
+        const tmpFilePath = join(tmpdir(), `trimmed-${Math.random()}.wav`);
+        processedAudioFilePath = await trimAudioFile(audioFilePath, tmpFilePath, 0, 20);
+    }
+
+    const cacheKey = generateCacheKey(processedAudioFilePath, transcription);
     const cachedResult = getCachedResult(cacheKey);
 
     if (cachedResult) {
@@ -144,7 +177,7 @@ export const align = async (audioFilePath: string, transcription: string): Promi
         return cachedResult;
     }
 
-    const formData = prepareFormData(audioFilePath, transcription);
+    const formData = prepareFormData(processedAudioFilePath, transcription);
 
     try {
         const segments = await uploadAudioFile(formData);
