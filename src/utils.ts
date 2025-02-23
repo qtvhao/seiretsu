@@ -35,13 +35,13 @@ export async function cutAudioFile(audioFile: string, start: number, end?: numbe
     let duration: string;
     try {
         const { stdout } = await execPromise(durationCommand);
-        duration = stdout.trim();
+        duration = parseFloat(stdout.trim()).toFixed(2).padStart(6, '0');
     } catch (error) {
         throw new Error(`Error retrieving audio duration: ${(error as Error).message}`);
     }
 
     const endOption = end !== undefined ? `-to ${end}` : "";
-    const outputFile = `cuts/trimmed_${parseFloat(duration)}_${start}_${end ?? "end"}.mp3`;
+    const outputFile = `cuts/trimmed_${duration}_${start}_${end ?? "end"}.mp3`;
     
     const command = `ffmpeg -i "${audioFile}" -ss ${start} ${endOption} -c copy "${outputFile}"`;
 
