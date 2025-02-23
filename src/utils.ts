@@ -31,9 +31,18 @@ export async function cutAudioFile(audioFile: string, start: number, end?: numbe
         throw new Error("Audio file does not exist.");
     }
 
-    const outputFile = `cuts/trimmed_${start}.mp3`; // Change format as needed
-    const endOption = end !== undefined ? `-to ${end}` : "";
+    const durationCommand = `ffprobe -i "${audioFile}" -show_entries format=duration -v quiet -of csv="p=0"`;
+    let duration: string;
+    try {
+        const { stdout } = await execPromise(durationCommand);
+        duration = stdout.trim();
+    } catch (error) {
+        throw new Error(`Error retrieving audio duration: ${(error as Error).message}`);
+    }
 
+    const endOption = end !== undefined ? `-to ${end}` : "";
+    const outputFile = `cuts/trimmed_${parseFloat(duration)}_${start}_${end ?? "end"}.mp3`;
+    
     const command = `ffmpeg -i "${audioFile}" -ss ${start} ${endOption} -c copy "${outputFile}"`;
 
     try {
