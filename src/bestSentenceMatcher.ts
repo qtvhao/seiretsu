@@ -101,7 +101,7 @@ export class BestSentenceMatcher {
     public findBestMatch(minTolerance: number): [TextSegment[], number | null, string[], string[]] {
         this.log("🚀 Starting segment match process...");
         
-        let tolerance = 0.9;
+        let tolerance = 0.5;
         let filteredSegments: TextSegment[] = [];
         let matchedSentences: string[] = [];
         let remainingSentences: string[] = [];

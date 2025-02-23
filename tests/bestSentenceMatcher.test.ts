@@ -16,14 +16,29 @@ describe("BestSentenceMatcher", () => {
     });
 
     test("findBestMatch 1", () => {
-        // "Chó là một trong những loài vật nuôi phổ biến và trung thành nhất của con người."
         const [matchedSegments, bestMatchEndTime, remainingSentences, processedSentences] = matcher.findBestMatch(0.2);
 
         expect(matchedSegments.length).toBeGreaterThan(0);
         expect(bestMatchEndTime).not.toBeNull();
         expect(remainingSentences.length).toBeLessThan(referenceSentences.length);
         expect(processedSentences.length).toBeGreaterThan(0);
-        expect(bestMatchEndTime).toBeGreaterThan(5.86)
-        expect(remainingSentences).toHaveLength(0)
+        expect(bestMatchEndTime).toEqual(14.26)
+        expect(remainingSentences).toHaveLength(53)
+    });
+
+    test("findBestMatch 2", () => {
+        transcriptSegments = JSON.parse(fs.readFileSync('./examples/bestSentenceMatcher-transcriptSegments-2.json').toString())
+
+        referenceSentences = JSON.parse(fs.readFileSync('./examples/bestSentenceMatcher-expectedTextSegments-2.json').toString())
+
+        matcher = new BestSentenceMatcher(transcriptSegments, referenceSentences);
+        const [matchedSegments, bestMatchEndTime, remainingSentences, processedSentences] = matcher.findBestMatch(0.2);
+
+        expect(matchedSegments.length).toBeGreaterThan(0);
+        expect(bestMatchEndTime).not.toBeNull();
+        expect(remainingSentences.length).toBeLessThan(referenceSentences.length);
+        expect(processedSentences.length).toBeGreaterThan(0);
+        expect(bestMatchEndTime).toEqual(18.38)
+        expect(remainingSentences).toHaveLength(48)
     });
 });

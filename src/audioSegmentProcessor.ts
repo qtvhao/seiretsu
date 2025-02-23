@@ -41,7 +41,7 @@ export class AudioSegmentProcessor {
      * @param alignmentData JSON object containing speech-to-text alignment results.
      * @returns A tuple containing the trimmed audio file path, remaining unmatched text, start timestamp, and extracted text segments.
      */
-    private async processAlignedSegments(
+    public async processAlignedSegments(
         audioFile: string, 
         expectedTextSegments: string[], 
         alignmentData: { segments: TranscriptSegment[] }

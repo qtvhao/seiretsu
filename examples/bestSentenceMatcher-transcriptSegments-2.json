@@ -1,0 +1,5523 @@
+[
+    {
+        "end": 0.48,
+        "start": 0.48,
+        "words": [
+            {
+                "word": " 1",
+                "start": 0.48,
+                "end": 0.48,
+                "probability": 0.06780636310577393,
+                "tokens": [
+                    502
+                ]
+            }
+        ],
+        "text": " 1"
+    },
+    {
+        "end": 2.62,
+        "start": 1.12,
+        "words": [
+            {
+                "word": " Chó",
+                "start": 1.12,
+                "end": 1.3,
+                "probability": 0.48746012267656624,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Husky",
+                "start": 1.3,
+                "end": 1.76,
+                "probability": 0.875650018453598,
+                "tokens": [
+                    21282,
+                    4133
+                ]
+            },
+            {
+                "word": " Siberian.",
+                "start": 1.76,
+                "end": 2.62,
+                "probability": 0.6599623759587606,
+                "tokens": [
+                    42608,
+                    952,
+                    13
+                ]
+            }
+        ],
+        "text": " Chó Husky Siberian."
+    },
+    {
+        "end": 5.1,
+        "start": 3.78,
+        "words": [
+            {
+                "word": "  Nguồn",
+                "start": 3.78,
+                "end": 3.98,
+                "probability": 0.5192216643266875,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 3.98,
+                "end": 4.4,
+                "probability": 0.4446245078567396,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            },
+            {
+                "word": " Siberia,",
+                "start": 4.62,
+                "end": 5.1,
+                "probability": 0.5485155602018494,
+                "tokens": [
+                    42608,
+                    654,
+                    11
+                ]
+            }
+        ],
+        "text": "  Nguồn gốc: Siberia,"
+    },
+    {
+        "end": 7.72,
+        "start": 5.4,
+        "words": [
+            {
+                "word": " Nga.",
+                "start": 5.4,
+                "end": 5.88,
+                "probability": 0.6310086374481519,
+                "tokens": [
+                    426,
+                    3680,
+                    13
+                ]
+            },
+            {
+                "word": "  Đặc",
+                "start": 6.38,
+                "end": 6.5,
+                "probability": 0.5976804764165232,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 6.5,
+                "end": 6.78,
+                "probability": 0.6275096370106136,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            },
+            {
+                "word": " Bộ",
+                "start": 7.12,
+                "end": 7.2,
+                "probability": 0.7872602343559265,
+                "tokens": [
+                    363,
+                    8047
+                ]
+            },
+            {
+                "word": " lông",
+                "start": 7.2,
+                "end": 7.36,
+                "probability": 0.8622173070907593,
+                "tokens": [
+                    287,
+                    8217
+                ]
+            },
+            {
+                "word": " dày,",
+                "start": 7.36,
+                "end": 7.72,
+                "probability": 0.8107173840204874,
+                "tokens": [
+                    274,
+                    9524,
+                    11
+                ]
+            }
+        ],
+        "text": " Nga.  Đặc điểm: Bộ lông dày,"
+    },
+    {
+        "end": 8.76,
+        "start": 7.96,
+        "words": [
+            {
+                "word": " mắt",
+                "start": 7.96,
+                "end": 8.02,
+                "probability": 0.505354467779398,
+                "tokens": [
+                    275,
+                    31454
+                ]
+            },
+            {
+                "word": " xanh",
+                "start": 8.02,
+                "end": 8.2,
+                "probability": 0.8325353860855103,
+                "tokens": [
+                    2031,
+                    50214
+                ]
+            },
+            {
+                "word": " hoặc",
+                "start": 8.2,
+                "end": 8.42,
+                "probability": 0.9939523935317993,
+                "tokens": [
+                    1106,
+                    38464
+                ]
+            },
+            {
+                "word": " nâu,",
+                "start": 8.42,
+                "end": 8.76,
+                "probability": 0.8130818804105123,
+                "tokens": [
+                    297,
+                    24325,
+                    11
+                ]
+            }
+        ],
+        "text": " mắt xanh hoặc nâu,"
+    },
+    {
+        "end": 9.68,
+        "start": 9.04,
+        "words": [
+            {
+                "word": " thân",
+                "start": 9.04,
+                "end": 9.12,
+                "probability": 0.6826868802309036,
+                "tokens": [
+                    258,
+                    9667
+                ]
+            },
+            {
+                "word": " hình",
+                "start": 9.12,
+                "end": 9.26,
+                "probability": 0.9976660013198853,
+                "tokens": [
+                    276,
+                    10116
+                ]
+            },
+            {
+                "word": " khỏe",
+                "start": 9.26,
+                "end": 9.48,
+                "probability": 0.9315904180208842,
+                "tokens": [
+                    7168,
+                    21920,
+                    68
+                ]
+            },
+            {
+                "word": " mạnh.",
+                "start": 9.48,
+                "end": 9.68,
+                "probability": 0.9487159649531046,
+                "tokens": [
+                    275,
+                    45782,
+                    13
+                ]
+            }
+        ],
+        "text": " thân hình khỏe mạnh."
+    },
+    {
+        "end": 11.16,
+        "start": 10.76,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 10.76,
+                "end": 10.92,
+                "probability": 0.5699419137090445,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 10.92,
+                "end": 11.16,
+                "probability": 0.4997564803343266,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            }
+        ],
+        "text": "  Tính cách:"
+    },
+    {
+        "end": 12.88,
+        "start": 11.72,
+        "words": [
+            {
+                "word": " Thông",
+                "start": 11.72,
+                "end": 11.8,
+                "probability": 0.7869846522808075,
+                "tokens": [
+                    334,
+                    8217
+                ]
+            },
+            {
+                "word": " minh,",
+                "start": 11.8,
+                "end": 12.18,
+                "probability": 0.9630307952562968,
+                "tokens": [
+                    923,
+                    71,
+                    11
+                ]
+            },
+            {
+                "word": " năng",
+                "start": 12.5,
+                "end": 12.64,
+                "probability": 0.9089108407497406,
+                "tokens": [
+                    297,
+                    34705
+                ]
+            },
+            {
+                "word": " động,",
+                "start": 12.64,
+                "end": 12.88,
+                "probability": 0.7195340692996979,
+                "tokens": [
+                    46880,
+                    11
+                ]
+            }
+        ],
+        "text": " Thông minh, năng động,"
+    },
+    {
+        "end": 14.76,
+        "start": 13.52,
+        "words": [
+            {
+                "word": " thân",
+                "start": 13.52,
+                "end": 13.64,
+                "probability": 0.8098870813846588,
+                "tokens": [
+                    258,
+                    9667
+                ]
+            },
+            {
+                "word": " thiện",
+                "start": 13.64,
+                "end": 13.86,
+                "probability": 0.9833344519138336,
+                "tokens": [
+                    30994,
+                    19679
+                ]
+            },
+            {
+                "word": " nhưng",
+                "start": 13.86,
+                "end": 14,
+                "probability": 0.8803623914718628,
+                "tokens": [
+                    37504
+                ]
+            },
+            {
+                "word": " khá",
+                "start": 14,
+                "end": 14.28,
+                "probability": 0.9886853098869324,
+                "tokens": [
+                    7168,
+                    842
+                ]
+            },
+            {
+                "word": " bướng",
+                "start": 14.28,
+                "end": 14.52,
+                "probability": 0.9361530741055807,
+                "tokens": [
+                    272,
+                    17059,
+                    872
+                ]
+            },
+            {
+                "word": " bỉnh.",
+                "start": 14.52,
+                "end": 14.76,
+                "probability": 0.7439674027264118,
+                "tokens": [
+                    272,
+                    43325,
+                    5728,
+                    13
+                ]
+            }
+        ],
+        "text": " thân thiện nhưng khá bướng bỉnh."
+    },
+    {
+        "end": 17.42,
+        "start": 15.76,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 15.76,
+                "end": 15.8,
+                "probability": 0.387112413923667,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 15.8,
+                "end": 15.94,
+                "probability": 0.7993384599685669,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 15.94,
+                "end": 16.14,
+                "probability": 0.9254534244537354,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 16.14,
+                "end": 16.42,
+                "probability": 0.6056341769581195,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            },
+            {
+                "word": " Cần",
+                "start": 16.84,
+                "end": 16.9,
+                "probability": 0.49629030004143715,
+                "tokens": [
+                    383,
+                    18241
+                ]
+            },
+            {
+                "word": " vận",
+                "start": 16.9,
+                "end": 17.04,
+                "probability": 0.7768482565879822,
+                "tokens": [
+                    371,
+                    27410
+                ]
+            },
+            {
+                "word": " động",
+                "start": 17.04,
+                "end": 17.18,
+                "probability": 0.9186418056488037,
+                "tokens": [
+                    46880
+                ]
+            },
+            {
+                "word": " nhiều,",
+                "start": 17.18,
+                "end": 17.42,
+                "probability": 0.7243678718805313,
+                "tokens": [
+                    28272,
+                    11
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi: Cần vận động nhiều,"
+    },
+    {
+        "end": 18.38,
+        "start": 17.56,
+        "words": [
+            {
+                "word": " thích",
+                "start": 17.56,
+                "end": 17.64,
+                "probability": 0.9301730692386627,
+                "tokens": [
+                    258,
+                    30839
+                ]
+            },
+            {
+                "word": " hợp",
+                "start": 17.64,
+                "end": 17.82,
+                "probability": 0.9897954265276591,
+                "tokens": [
+                    276,
+                    27836,
+                    79
+                ]
+            },
+            {
+                "word": " với",
+                "start": 17.84,
+                "end": 17.94,
+                "probability": 0.8435855507850647,
+                "tokens": [
+                    18916
+                ]
+            },
+            {
+                "word": " khí",
+                "start": 17.94,
+                "end": 18.1,
+                "probability": 0.9147751331329346,
+                "tokens": [
+                    7168,
+                    870
+                ]
+            },
+            {
+                "word": " hậu",
+                "start": 18.1,
+                "end": 18.26,
+                "probability": 0.9821105400721232,
+                "tokens": [
+                    276,
+                    9973,
+                    84
+                ]
+            },
+            {
+                "word": " lạnh.",
+                "start": 18.26,
+                "end": 18.38,
+                "probability": 0.8573110500971476,
+                "tokens": [
+                    287,
+                    45782,
+                    13
+                ]
+            }
+        ],
+        "text": " thích hợp với khí hậu lạnh."
+    },
+    {
+        "end": 22.9,
+        "start": 22.08,
+        "words": [
+            {
+                "word": "  2",
+                "start": 22.08,
+                "end": 22.14,
+                "probability": 0.0323678880231455,
+                "tokens": [
+                    220,
+                    568
+                ]
+            },
+            {
+                "word": " Chó",
+                "start": 22.14,
+                "end": 22.9,
+                "probability": 0.0010270699494867586,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Alaska",
+                "start": 22.9,
+                "end": 22.9,
+                "probability": 9.522856885268993e-7,
+                "tokens": [
+                    19553
+                ]
+            },
+            {
+                "word": " Malamute.",
+                "start": 22.9,
+                "end": 22.9,
+                "probability": 0.04464088437453029,
+                "tokens": [
+                    5746,
+                    335,
+                    1169,
+                    13
+                ]
+            }
+        ],
+        "text": "  2 Chó Alaska Malamute."
+    },
+    {
+        "end": 25,
+        "start": 22.9,
+        "words": [
+            {
+                "word": "  Nguồn",
+                "start": 22.9,
+                "end": 22.9,
+                "probability": 0.42517456524074076,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 22.9,
+                "end": 23.72,
+                "probability": 0.5585638035651451,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            },
+            {
+                "word": " Alaska,",
+                "start": 23.72,
+                "end": 23.94,
+                "probability": 0.10228221822399064,
+                "tokens": [
+                    19553,
+                    11
+                ]
+            },
+            {
+                "word": " Mỹ.",
+                "start": 24.24,
+                "end": 24.48,
+                "probability": 0.3819514960050583,
+                "tokens": [
+                    48845,
+                    13
+                ]
+            },
+            {
+                "word": "  Đặc",
+                "start": 24.68,
+                "end": 24.76,
+                "probability": 0.5745078679174185,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 24.76,
+                "end": 25,
+                "probability": 0.5700786645368984,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            }
+        ],
+        "text": "  Nguồn gốc: Alaska, Mỹ.  Đặc điểm:"
+    },
+    {
+        "end": 26.2,
+        "start": 25.52,
+        "words": [
+            {
+                "word": " Lớn",
+                "start": 25.52,
+                "end": 25.68,
+                "probability": 0.562010775009791,
+                "tokens": [
+                    441,
+                    27260,
+                    77
+                ]
+            },
+            {
+                "word": " hơn",
+                "start": 25.68,
+                "end": 25.8,
+                "probability": 0.9931274652481079,
+                "tokens": [
+                    34335
+                ]
+            },
+            {
+                "word": " Husky,",
+                "start": 25.8,
+                "end": 26.2,
+                "probability": 0.6900755365689596,
+                "tokens": [
+                    21282,
+                    4133,
+                    11
+                ]
+            }
+        ],
+        "text": " Lớn hơn Husky,"
+    },
+    {
+        "end": 26.88,
+        "start": 26.36,
+        "words": [
+            {
+                "word": " lông",
+                "start": 26.36,
+                "end": 26.46,
+                "probability": 0.6677495986223221,
+                "tokens": [
+                    287,
+                    8217
+                ]
+            },
+            {
+                "word": " dày",
+                "start": 26.46,
+                "end": 26.66,
+                "probability": 0.8423730432987213,
+                "tokens": [
+                    274,
+                    9524
+                ]
+            },
+            {
+                "word": " hơn,",
+                "start": 26.66,
+                "end": 26.88,
+                "probability": 0.5207539815455675,
+                "tokens": [
+                    34335,
+                    11
+                ]
+            }
+        ],
+        "text": " lông dày hơn,"
+    },
+    {
+        "end": 27.4,
+        "start": 26.96,
+        "words": [
+            {
+                "word": " đuôi",
+                "start": 26.96,
+                "end": 27.1,
+                "probability": 0.8474322358767191,
+                "tokens": [
+                    2934,
+                    84,
+                    12213
+                ]
+            },
+            {
+                "word": " cong,",
+                "start": 27.1,
+                "end": 27.4,
+                "probability": 0.4841017462313175,
+                "tokens": [
+                    416,
+                    70,
+                    11
+                ]
+            }
+        ],
+        "text": " đuôi cong,"
+    },
+    {
+        "end": 28.56,
+        "start": 27.4,
+        "words": [
+            {
+                "word": " mặt",
+                "start": 27.4,
+                "end": 27.52,
+                "probability": 0.8880748152732849,
+                "tokens": [
+                    275,
+                    38248
+                ]
+            },
+            {
+                "word": " có",
+                "start": 27.52,
+                "end": 27.66,
+                "probability": 0.9474026560783386,
+                "tokens": [
+                    6333
+                ]
+            },
+            {
+                "word": " khoang",
+                "start": 27.78,
+                "end": 27.88,
+                "probability": 0.6707960665225983,
+                "tokens": [
+                    49627,
+                    656
+                ]
+            },
+            {
+                "word": " trắng",
+                "start": 27.88,
+                "end": 28.14,
+                "probability": 0.8880780637264252,
+                "tokens": [
+                    504,
+                    46129
+                ]
+            },
+            {
+                "word": " đặc",
+                "start": 28.14,
+                "end": 28.32,
+                "probability": 0.4709139671176672,
+                "tokens": [
+                    2934,
+                    38464
+                ]
+            },
+            {
+                "word": " trưng.",
+                "start": 28.32,
+                "end": 28.56,
+                "probability": 0.420158788561821,
+                "tokens": [
+                    504,
+                    42509,
+                    13
+                ]
+            }
+        ],
+        "text": " mặt có khoang trắng đặc trưng."
+    },
+    {
+        "end": 31.14,
+        "start": 28.96,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 28.96,
+                "end": 29,
+                "probability": 0.15779439165441053,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 29,
+                "end": 29.54,
+                "probability": 0.4946070530859288,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            },
+            {
+                "word": " Trung",
+                "start": 29.58,
+                "end": 29.58,
+                "probability": 0.00012611063721124083,
+                "tokens": [
+                    40555
+                ]
+            },
+            {
+                "word": " thành,",
+                "start": 29.58,
+                "end": 29.92,
+                "probability": 0.5205636918544769,
+                "tokens": [
+                    39953,
+                    11
+                ]
+            },
+            {
+                "word": " mạnh",
+                "start": 30.22,
+                "end": 30.34,
+                "probability": 0.683443158864975,
+                "tokens": [
+                    275,
+                    45782
+                ]
+            },
+            {
+                "word": " mẽ,",
+                "start": 30.34,
+                "end": 30.7,
+                "probability": 0.9800299803415934,
+                "tokens": [
+                    275,
+                    15740,
+                    11
+                ]
+            },
+            {
+                "word": " năng",
+                "start": 30.82,
+                "end": 30.94,
+                "probability": 0.9651673436164856,
+                "tokens": [
+                    297,
+                    34705
+                ]
+            },
+            {
+                "word": " động.",
+                "start": 30.94,
+                "end": 31.14,
+                "probability": 0.7776903212070465,
+                "tokens": [
+                    46880,
+                    13
+                ]
+            }
+        ],
+        "text": "  Tính cách: Trung thành, mạnh mẽ, năng động."
+    },
+    {
+        "end": 34.5,
+        "start": 32.03,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 32.03,
+                "end": 32.48,
+                "probability": 0.5029161633865442,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 32.48,
+                "end": 32.58,
+                "probability": 0.8089590668678284,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 32.58,
+                "end": 32.76,
+                "probability": 0.760789692401886,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 32.76,
+                "end": 33.1,
+                "probability": 0.6206573111703619,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            },
+            {
+                "word": " Cần",
+                "start": 33.54,
+                "end": 33.58,
+                "probability": 0.4435403645038605,
+                "tokens": [
+                    383,
+                    18241
+                ]
+            },
+            {
+                "word": " không",
+                "start": 33.64,
+                "end": 33.78,
+                "probability": 0.9418389201164246,
+                "tokens": [
+                    11415
+                ]
+            },
+            {
+                "word": " gian",
+                "start": 33.78,
+                "end": 34,
+                "probability": 0.7553689479827881,
+                "tokens": [
+                    290,
+                    952
+                ]
+            },
+            {
+                "word": " rộng",
+                "start": 34.14,
+                "end": 34.24,
+                "probability": 0.891381581624349,
+                "tokens": [
+                    367,
+                    8047,
+                    872
+                ]
+            },
+            {
+                "word": " rãi,",
+                "start": 34.24,
+                "end": 34.5,
+                "probability": 0.5058424193412066,
+                "tokens": [
+                    367,
+                    1046,
+                    72,
+                    11
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi: Cần không gian rộng rãi,"
+    },
+    {
+        "end": 35.5,
+        "start": 34.56,
+        "words": [
+            {
+                "word": " thích",
+                "start": 34.56,
+                "end": 34.56,
+                "probability": 0.9788405299186707,
+                "tokens": [
+                    258,
+                    30839
+                ]
+            },
+            {
+                "word": " hợp",
+                "start": 34.66,
+                "end": 34.88,
+                "probability": 0.9969541827837626,
+                "tokens": [
+                    276,
+                    27836,
+                    79
+                ]
+            },
+            {
+                "word": " với",
+                "start": 34.92,
+                "end": 35.02,
+                "probability": 0.516686201095581,
+                "tokens": [
+                    18916
+                ]
+            },
+            {
+                "word": " thời",
+                "start": 35.02,
+                "end": 35.16,
+                "probability": 0.9519911408424377,
+                "tokens": [
+                    49506
+                ]
+            },
+            {
+                "word": " tiết",
+                "start": 35.16,
+                "end": 35.3,
+                "probability": 0.947185218334198,
+                "tokens": [
+                    8757,
+                    13888
+                ]
+            },
+            {
+                "word": " lạnh.",
+                "start": 35.3,
+                "end": 35.5,
+                "probability": 0.9078293840090433,
+                "tokens": [
+                    287,
+                    45782,
+                    13
+                ]
+            }
+        ],
+        "text": " thích hợp với thời tiết lạnh."
+    },
+    {
+        "end": 37.62,
+        "start": 36.88,
+        "words": [
+            {
+                "word": "  3",
+                "start": 36.88,
+                "end": 36.92,
+                "probability": 0.0810927301645279,
+                "tokens": [
+                    220,
+                    805
+                ]
+            },
+            {
+                "word": " Chó",
+                "start": 36.92,
+                "end": 37.16,
+                "probability": 0.5903350934386253,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Corgi.",
+                "start": 37.16,
+                "end": 37.62,
+                "probability": 0.4458812475204468,
+                "tokens": [
+                    3925,
+                    7834,
+                    13
+                ]
+            }
+        ],
+        "text": "  3 Chó Corgi."
+    },
+    {
+        "end": 40.16,
+        "start": 38.12,
+        "words": [
+            {
+                "word": "  Nguồn",
+                "start": 38.12,
+                "end": 38.24,
+                "probability": 0.7251604452729226,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 38.24,
+                "end": 38.42,
+                "probability": 0.5666808124321202,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            },
+            {
+                "word": " Wales,",
+                "start": 38.82,
+                "end": 39.04,
+                "probability": 0.23010379914194345,
+                "tokens": [
+                    16495,
+                    11
+                ]
+            },
+            {
+                "word": " Anh.",
+                "start": 39.04,
+                "end": 39.24,
+                "probability": 0.6625346839427948,
+                "tokens": [
+                    23574,
+                    13
+                ]
+            },
+            {
+                "word": "  Đặc",
+                "start": 39.64,
+                "end": 39.74,
+                "probability": 0.6314350102717677,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 39.74,
+                "end": 40.16,
+                "probability": 0.6486811634774009,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            }
+        ],
+        "text": "  Nguồn gốc: Wales, Anh.  Đặc điểm:"
+    },
+    {
+        "end": 58.26,
+        "start": 58.04,
+        "words": [
+            {
+                "word": " Thân",
+                "start": 58.04,
+                "end": 58.08,
+                "probability": 0.9137975573539734,
+                "tokens": [
+                    334,
+                    9667
+                ]
+            },
+            {
+                "word": " hình",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.7536985874176025,
+                "tokens": [
+                    276,
+                    10116
+                ]
+            },
+            {
+                "word": " lùn,",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.024657743582793046,
+                "tokens": [
+                    287,
+                    5035,
+                    77,
+                    11
+                ]
+            },
+            {
+                "word": " chân",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.027310625817335676,
+                "tokens": [
+                    417,
+                    9667
+                ]
+            },
+            {
+                "word": " ngắn,",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.1313950400799513,
+                "tokens": [
+                    6415,
+                    42348,
+                    11
+                ]
+            },
+            {
+                "word": " tai",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.000004497705049288925,
+                "tokens": [
+                    20499
+                ]
+            },
+            {
+                "word": " lớn",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.3267624231230002,
+                "tokens": [
+                    47864,
+                    77
+                ]
+            },
+            {
+                "word": " dựng",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.023324397082130115,
+                "tokens": [
+                    274,
+                    14522,
+                    872
+                ]
+            },
+            {
+                "word": " đứng.",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.04015734663698822,
+                "tokens": [
+                    2934,
+                    44555,
+                    13
+                ]
+            }
+        ],
+        "text": " Thân hình lùn, chân ngắn, tai lớn dựng đứng."
+    },
+    {
+        "end": 59.76,
+        "start": 58.26,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.002593429091575672,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.0021847163588972762,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            },
+            {
+                "word": " Thông",
+                "start": 58.26,
+                "end": 58.26,
+                "probability": 0.0378878777846694,
+                "tokens": [
+                    334,
+                    8217
+                ]
+            },
+            {
+                "word": " minh,",
+                "start": 58.26,
+                "end": 58.5,
+                "probability": 0.5354908009370168,
+                "tokens": [
+                    923,
+                    71,
+                    11
+                ]
+            },
+            {
+                "word": " hòa",
+                "start": 58.64,
+                "end": 58.96,
+                "probability": 0.31729188639049727,
+                "tokens": [
+                    276,
+                    4293,
+                    64
+                ]
+            },
+            {
+                "word": " đồng,",
+                "start": 58.96,
+                "end": 59.06,
+                "probability": 0.19567390812153462,
+                "tokens": [
+                    2934,
+                    35070,
+                    11
+                ]
+            },
+            {
+                "word": " tình",
+                "start": 59.1,
+                "end": 59.48,
+                "probability": 0.17525114491581917,
+                "tokens": [
+                    256,
+                    10116
+                ]
+            },
+            {
+                "word": " cảm.",
+                "start": 59.48,
+                "end": 59.76,
+                "probability": 0.4665607362985611,
+                "tokens": [
+                    47593,
+                    13
+                ]
+            }
+        ],
+        "text": "  Tính cách: Thông minh, hòa đồng, tình cảm."
+    },
+    {
+        "end": 62.16,
+        "start": 60.98,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 60.98,
+                "end": 61.12,
+                "probability": 0.5801010223804042,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 61.12,
+                "end": 61.2,
+                "probability": 0.8788090944290161,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 61.2,
+                "end": 61.4,
+                "probability": 0.5260584950447083,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 61.4,
+                "end": 61.78,
+                "probability": 0.6052969894596268,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            },
+            {
+                "word": " Dễ",
+                "start": 62.16,
+                "end": 62.16,
+                "probability": 0.029978020931594074,
+                "tokens": [
+                    413,
+                    36664
+                ]
+            },
+            {
+                "word": " béo",
+                "start": 62.16,
+                "end": 62.16,
+                "probability": 0.07092654334749682,
+                "tokens": [
+                    15807,
+                    78
+                ]
+            },
+            {
+                "word": " phì,",
+                "start": 62.16,
+                "end": 62.16,
+                "probability": 0.03395755330954368,
+                "tokens": [
+                    903,
+                    4749,
+                    11
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi: Dễ béo phì,"
+    },
+    {
+        "end": 63.18,
+        "start": 62.16,
+        "words": [
+            {
+                "word": " cần",
+                "start": 62.16,
+                "end": 62.16,
+                "probability": 0.016011152416467667,
+                "tokens": [
+                    47580
+                ]
+            },
+            {
+                "word": " kiểm",
+                "start": 62.16,
+                "end": 62.44,
+                "probability": 0.1569087967654923,
+                "tokens": [
+                    6315,
+                    47119
+                ]
+            },
+            {
+                "word": " soát",
+                "start": 62.44,
+                "end": 62.6,
+                "probability": 0.7072784006595612,
+                "tokens": [
+                    370,
+                    7656
+                ]
+            },
+            {
+                "word": " chế",
+                "start": 62.62,
+                "end": 62.72,
+                "probability": 0.000922764273127541,
+                "tokens": [
+                    417,
+                    6115
+                ]
+            },
+            {
+                "word": " độ",
+                "start": 62.72,
+                "end": 62.72,
+                "probability": 0.08135803043842316,
+                "tokens": [
+                    29075
+                ]
+            },
+            {
+                "word": " ăn",
+                "start": 62.72,
+                "end": 62.86,
+                "probability": 0.00013194560597185045,
+                "tokens": [
+                    28657
+                ]
+            },
+            {
+                "word": " uống.",
+                "start": 62.86,
+                "end": 63.18,
+                "probability": 0.30130564072169363,
+                "tokens": [
+                    344,
+                    21092,
+                    13
+                ]
+            }
+        ],
+        "text": " cần kiểm soát chế độ ăn uống."
+    },
+    {
+        "end": 66.1,
+        "start": 65,
+        "words": [
+            {
+                "word": "  4",
+                "start": 65,
+                "end": 65.14,
+                "probability": 0.00472155362194826,
+                "tokens": [
+                    220,
+                    1017
+                ]
+            },
+            {
+                "word": " Chó",
+                "start": 65.14,
+                "end": 65.56,
+                "probability": 0.4143479922786355,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Poodle.",
+                "start": 65.56,
+                "end": 66.1,
+                "probability": 0.12263051485933829,
+                "tokens": [
+                    430,
+                    1816,
+                    306,
+                    13
+                ]
+            }
+        ],
+        "text": "  4 Chó Poodle."
+    },
+    {
+        "end": 67.64,
+        "start": 66.74,
+        "words": [
+            {
+                "word": "  Nguồn",
+                "start": 66.74,
+                "end": 66.84,
+                "probability": 0.4323338619840797,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 66.84,
+                "end": 67.16,
+                "probability": 0.46017825729844236,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            },
+            {
+                "word": " Pháp/Đức.",
+                "start": 67.22,
+                "end": 67.64,
+                "probability": 0.05259055822742604,
+                "tokens": [
+                    2623,
+                    15059,
+                    14,
+                    128,
+                    238,
+                    27138,
+                    13
+                ]
+            }
+        ],
+        "text": "  Nguồn gốc: Pháp/Đức."
+    },
+    {
+        "end": 69.83,
+        "start": 68.28,
+        "words": [
+            {
+                "word": "  Đặc",
+                "start": 68.28,
+                "end": 68.36,
+                "probability": 0.01649703276537669,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 68.36,
+                "end": 68.66,
+                "probability": 0.33028230275764753,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            },
+            {
+                "word": " Lông",
+                "start": 69.08,
+                "end": 69.08,
+                "probability": 0.0030168890370987356,
+                "tokens": [
+                    441,
+                    8217
+                ]
+            },
+            {
+                "word": " xoăn,",
+                "start": 69.08,
+                "end": 69.83,
+                "probability": 0.03381301764784439,
+                "tokens": [
+                    2031,
+                    78,
+                    49214,
+                    11
+                ]
+            }
+        ],
+        "text": "  Đặc điểm: Lông xoăn,"
+    },
+    {
+        "end": 70.94,
+        "start": 70.84,
+        "words": [
+            {
+                "word": " có",
+                "start": 70.84,
+                "end": 70.94,
+                "probability": 0.0002237833250546828,
+                "tokens": [
+                    6333
+                ]
+            },
+            {
+                "word": " nhiều",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.00784500315785408,
+                "tokens": [
+                    28272
+                ]
+            },
+            {
+                "word": " kích",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.007720490917563438,
+                "tokens": [
+                    350,
+                    30839
+                ]
+            },
+            {
+                "word": " thước",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.01632524728483986,
+                "tokens": [
+                    258,
+                    19578
+                ]
+            },
+            {
+                "word": " từ",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.0019559406209737062,
+                "tokens": [
+                    26834
+                ]
+            },
+            {
+                "word": " nhỏ",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.07949703233316541,
+                "tokens": [
+                    6245,
+                    21920
+                ]
+            },
+            {
+                "word": " đến",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.00195519276894629,
+                "tokens": [
+                    26353
+                ]
+            },
+            {
+                "word": " lớn",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.202140336856246,
+                "tokens": [
+                    47864,
+                    77
+                ]
+            },
+            {
+                "word": " (Toy,",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.03442459096368111,
+                "tokens": [
+                    522,
+                    51,
+                    939,
+                    11
+                ]
+            }
+        ],
+        "text": " có nhiều kích thước từ nhỏ đến lớn (Toy,"
+    },
+    {
+        "end": 70.94,
+        "start": 70.94,
+        "words": [
+            {
+                "word": " Mini,",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.19204324816178087,
+                "tokens": [
+                    18239,
+                    11
+                ]
+            }
+        ],
+        "text": " Mini,"
+    },
+    {
+        "end": 70.94,
+        "start": 70.94,
+        "words": [
+            {
+                "word": " Standard).",
+                "start": 70.94,
+                "end": 70.94,
+                "probability": 0.005902550779865123,
+                "tokens": [
+                    21298,
+                    3050
+                ]
+            }
+        ],
+        "text": " Standard)."
+    },
+    {
+        "end": 71.86,
+        "start": 70.94,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 70.94,
+                "end": 71.02,
+                "probability": 0.01796014125769337,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 71.02,
+                "end": 71.86,
+                "probability": 0.3819444584660232,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            }
+        ],
+        "text": "  Tính cách:"
+    },
+    {
+        "end": 74.66,
+        "start": 73.08,
+        "words": [
+            {
+                "word": " Thông",
+                "start": 73.08,
+                "end": 73.86,
+                "probability": 0.03506363101769239,
+                "tokens": [
+                    334,
+                    8217
+                ]
+            },
+            {
+                "word": " minh,",
+                "start": 73.86,
+                "end": 74.66,
+                "probability": 0.7636366486549377,
+                "tokens": [
+                    923,
+                    71,
+                    11
+                ]
+            }
+        ],
+        "text": " Thông minh,"
+    },
+    {
+        "end": 75.32,
+        "start": 75.26,
+        "words": [
+            {
+                "word": " dễ",
+                "start": 75.26,
+                "end": 75.32,
+                "probability": 0.03347595687955618,
+                "tokens": [
+                    274,
+                    36664
+                ]
+            },
+            {
+                "word": " huấn",
+                "start": 75.32,
+                "end": 75.32,
+                "probability": 0.0010984177715727128,
+                "tokens": [
+                    2137,
+                    43975
+                ]
+            },
+            {
+                "word": " luyện,",
+                "start": 75.32,
+                "end": 75.32,
+                "probability": 0.2832779809832573,
+                "tokens": [
+                    287,
+                    7493,
+                    19679,
+                    11
+                ]
+            },
+            {
+                "word": " tình",
+                "start": 75.32,
+                "end": 75.32,
+                "probability": 0.06810275185853243,
+                "tokens": [
+                    256,
+                    10116
+                ]
+            },
+            {
+                "word": " cảm.",
+                "start": 75.32,
+                "end": 75.32,
+                "probability": 0.017755927285179496,
+                "tokens": [
+                    47593,
+                    13
+                ]
+            }
+        ],
+        "text": " dễ huấn luyện, tình cảm."
+    },
+    {
+        "end": 75.98,
+        "start": 75.32,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 75.32,
+                "end": 75.38,
+                "probability": 0.2733111211564392,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 75.38,
+                "end": 75.5,
+                "probability": 0.4728015065193176,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 75.5,
+                "end": 75.68,
+                "probability": 0.32506656646728516,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 75.68,
+                "end": 75.98,
+                "probability": 0.5286947917963213,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi:"
+    },
+    {
+        "end": 77.24,
+        "start": 77.14,
+        "words": [
+            {
+                "word": " Cần",
+                "start": 77.14,
+                "end": 77.24,
+                "probability": 0.00732007366605103,
+                "tokens": [
+                    383,
+                    18241
+                ]
+            },
+            {
+                "word": " chăm",
+                "start": 77.24,
+                "end": 77.24,
+                "probability": 0.006785035599023104,
+                "tokens": [
+                    417,
+                    21434
+                ]
+            },
+            {
+                "word": " sóc",
+                "start": 77.24,
+                "end": 77.24,
+                "probability": 0.5395027250051498,
+                "tokens": [
+                    6238,
+                    66
+                ]
+            },
+            {
+                "word": " lông",
+                "start": 77.24,
+                "end": 77.24,
+                "probability": 0.02424056688323617,
+                "tokens": [
+                    287,
+                    8217
+                ]
+            },
+            {
+                "word": " thường",
+                "start": 77.24,
+                "end": 77.24,
+                "probability": 0.031158549711108208,
+                "tokens": [
+                    258,
+                    24280
+                ]
+            },
+            {
+                "word": " xuyên.",
+                "start": 77.24,
+                "end": 77.24,
+                "probability": 0.2701513667125255,
+                "tokens": [
+                    2031,
+                    7493,
+                    5050,
+                    13
+                ]
+            }
+        ],
+        "text": " Cần chăm sóc lông thường xuyên."
+    },
+    {
+        "end": 81.36,
+        "start": 80.14,
+        "words": [
+            {
+                "word": "  5",
+                "start": 80.14,
+                "end": 80.14,
+                "probability": 0.0009931088562904478,
+                "tokens": [
+                    220,
+                    1025
+                ]
+            },
+            {
+                "word": " Chó",
+                "start": 80.14,
+                "end": 80.14,
+                "probability": 0.023798931506462395,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Golden",
+                "start": 80.14,
+                "end": 80.76,
+                "probability": 0.000026445484763826244,
+                "tokens": [
+                    13410
+                ]
+            },
+            {
+                "word": " Retriever.",
+                "start": 80.76,
+                "end": 81.36,
+                "probability": 0.5662919087972114,
+                "tokens": [
+                    11495,
+                    5469,
+                    331,
+                    13
+                ]
+            }
+        ],
+        "text": "  5 Chó Golden Retriever."
+    },
+    {
+        "end": 82.34,
+        "start": 82,
+        "words": [
+            {
+                "word": "  Nguồn",
+                "start": 82,
+                "end": 82.14,
+                "probability": 0.48744132816791536,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 82.14,
+                "end": 82.34,
+                "probability": 0.3549508741198224,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            }
+        ],
+        "text": "  Nguồn gốc:"
+    },
+    {
+        "end": 83.4,
+        "start": 83.1,
+        "words": [
+            {
+                "word": " Scotland.",
+                "start": 83.1,
+                "end": 83.4,
+                "probability": 0.1648463895999157,
+                "tokens": [
+                    11180,
+                    13
+                ]
+            }
+        ],
+        "text": " Scotland."
+    },
+    {
+        "end": 84.02,
+        "start": 83.6,
+        "words": [
+            {
+                "word": "  Đặc",
+                "start": 83.6,
+                "end": 83.7,
+                "probability": 0.07170144592722257,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 83.7,
+                "end": 84.02,
+                "probability": 0.5284462004589537,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            }
+        ],
+        "text": "  Đặc điểm:"
+    },
+    {
+        "end": 89.04,
+        "start": 84.74,
+        "words": [
+            {
+                "word": " Bộ",
+                "start": 84.74,
+                "end": 85.24,
+                "probability": 0.019773500505834818,
+                "tokens": [
+                    363,
+                    8047
+                ]
+            },
+            {
+                "word": " lông",
+                "start": 85.24,
+                "end": 85.3,
+                "probability": 0.014828907325863838,
+                "tokens": [
+                    287,
+                    8217
+                ]
+            },
+            {
+                "word": " vàng",
+                "start": 85.34,
+                "end": 85.54,
+                "probability": 0.07807707181200385,
+                "tokens": [
+                    10274,
+                    872
+                ]
+            },
+            {
+                "word": " óng,",
+                "start": 85.54,
+                "end": 87.78,
+                "probability": 0.11071144812255322,
+                "tokens": [
+                    11857,
+                    872,
+                    11
+                ]
+            },
+            {
+                "word": " thân",
+                "start": 87.78,
+                "end": 89.04,
+                "probability": 0.006984831881709397,
+                "tokens": [
+                    258,
+                    9667
+                ]
+            },
+            {
+                "word": " hình",
+                "start": 89.04,
+                "end": 89.04,
+                "probability": 0.04862455651164055,
+                "tokens": [
+                    276,
+                    10116
+                ]
+            },
+            {
+                "word": " cân",
+                "start": 89.04,
+                "end": 89.04,
+                "probability": 0.009140150854364038,
+                "tokens": [
+                    269,
+                    9667
+                ]
+            },
+            {
+                "word": " đối.",
+                "start": 89.04,
+                "end": 89.04,
+                "probability": 0.05794654646888375,
+                "tokens": [
+                    2934,
+                    24273,
+                    13
+                ]
+            }
+        ],
+        "text": " Bộ lông vàng óng, thân hình cân đối."
+    },
+    {
+        "end": 89.52,
+        "start": 89.18,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 89.18,
+                "end": 89.28,
+                "probability": 0.2438029864182075,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 89.28,
+                "end": 89.52,
+                "probability": 0.41185418982058764,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            }
+        ],
+        "text": "  Tính cách:"
+    },
+    {
+        "end": 90.32,
+        "start": 90.06,
+        "words": [
+            {
+                "word": " Hiền",
+                "start": 90.06,
+                "end": 90.14,
+                "probability": 0.069001197713078,
+                "tokens": [
+                    2421,
+                    26871
+                ]
+            },
+            {
+                "word": " lành,",
+                "start": 90.14,
+                "end": 90.32,
+                "probability": 0.17763279378414154,
+                "tokens": [
+                    3684,
+                    5728,
+                    11
+                ]
+            }
+        ],
+        "text": " Hiền lành,"
+    },
+    {
+        "end": 92.4,
+        "start": 91.46,
+        "words": [
+            {
+                "word": " thân",
+                "start": 91.46,
+                "end": 91.6,
+                "probability": 0.20885656028985977,
+                "tokens": [
+                    258,
+                    9667
+                ]
+            },
+            {
+                "word": " thiện,",
+                "start": 91.6,
+                "end": 92,
+                "probability": 0.14554357427793244,
+                "tokens": [
+                    30994,
+                    19679,
+                    11
+                ]
+            },
+            {
+                "word": " thông",
+                "start": 92.3,
+                "end": 92.4,
+                "probability": 0.05188235081732273,
+                "tokens": [
+                    258,
+                    8217
+                ]
+            },
+            {
+                "word": " minh.",
+                "start": 92.4,
+                "end": 92.4,
+                "probability": 0.5778329645593961,
+                "tokens": [
+                    923,
+                    71,
+                    13
+                ]
+            }
+        ],
+        "text": " thân thiện, thông minh."
+    },
+    {
+        "end": 92.66,
+        "start": 92.4,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 92.4,
+                "end": 92.44,
+                "probability": 0.2742413766682148,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 92.44,
+                "end": 92.52,
+                "probability": 0.1980268955230713,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 92.52,
+                "end": 92.66,
+                "probability": 0.12095364183187485,
+                "tokens": [
+                    23526
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi"
+    },
+    {
+        "end": 97.3,
+        "start": 97.1,
+        "words": [
+            {
+                "word": " nuôi:",
+                "start": 97.1,
+                "end": 97.3,
+                "probability": 0.3059393764354657,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            }
+        ],
+        "text": " nuôi:"
+    },
+    {
+        "end": 97.88,
+        "start": 97.88,
+        "words": [
+            {
+                "word": " Rất",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.13766083744121715,
+                "tokens": [
+                    497,
+                    12436
+                ]
+            },
+            {
+                "word": " thích",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.008411176269873977,
+                "tokens": [
+                    258,
+                    30839
+                ]
+            },
+            {
+                "word": " vận",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.015173746040090919,
+                "tokens": [
+                    371,
+                    27410
+                ]
+            },
+            {
+                "word": " động,",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.07510376465506852,
+                "tokens": [
+                    46880,
+                    11
+                ]
+            }
+        ],
+        "text": " Rất thích vận động,"
+    },
+    {
+        "end": 98.34,
+        "start": 97.88,
+        "words": [
+            {
+                "word": " phù",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.005704641225747764,
+                "tokens": [
+                    903,
+                    5035
+                ]
+            },
+            {
+                "word": " hợp",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.4619223028421402,
+                "tokens": [
+                    276,
+                    27836,
+                    79
+                ]
+            },
+            {
+                "word": " với",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.010141546837985516,
+                "tokens": [
+                    18916
+                ]
+            },
+            {
+                "word": " gia",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.0007712669321335852,
+                "tokens": [
+                    39689
+                ]
+            },
+            {
+                "word": " đình",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.8629823923110962,
+                "tokens": [
+                    2934,
+                    10116
+                ]
+            },
+            {
+                "word": " có",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.0015811821212992072,
+                "tokens": [
+                    6333
+                ]
+            },
+            {
+                "word": " trẻ",
+                "start": 97.88,
+                "end": 97.88,
+                "probability": 0.03387219039723277,
+                "tokens": [
+                    504,
+                    40956
+                ]
+            },
+            {
+                "word": " nhỏ.",
+                "start": 97.88,
+                "end": 98.34,
+                "probability": 0.046912629467745624,
+                "tokens": [
+                    6245,
+                    21920,
+                    13
+                ]
+            }
+        ],
+        "text": " phù hợp với gia đình có trẻ nhỏ."
+    },
+    {
+        "end": 103.96,
+        "start": 99.3,
+        "words": [
+            {
+                "word": "  6",
+                "start": 99.3,
+                "end": 100.4,
+                "probability": 0.0009782928646044908,
+                "tokens": [
+                    220,
+                    1386
+                ]
+            },
+            {
+                "word": " Chó",
+                "start": 100.4,
+                "end": 101.34,
+                "probability": 0.00789137918036431,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Labrador",
+                "start": 101.34,
+                "end": 103.96,
+                "probability": 0.19257160612827798,
+                "tokens": [
+                    10137,
+                    81,
+                    5409
+                ]
+            },
+            {
+                "word": " Retriever.",
+                "start": 103.96,
+                "end": 103.96,
+                "probability": 0.05882505700810725,
+                "tokens": [
+                    11495,
+                    5469,
+                    331,
+                    13
+                ]
+            }
+        ],
+        "text": "  6 Chó Labrador Retriever."
+    },
+    {
+        "end": 111.76,
+        "start": 111.36,
+        "words": [
+            {
+                "word": "  Nguồn",
+                "start": 111.36,
+                "end": 111.48,
+                "probability": 0.4843087909572887,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 111.48,
+                "end": 111.76,
+                "probability": 0.5443331444870031,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            }
+        ],
+        "text": "  Nguồn gốc:"
+    },
+    {
+        "end": 112.88,
+        "start": 112.32,
+        "words": [
+            {
+                "word": " Canada.",
+                "start": 112.32,
+                "end": 112.88,
+                "probability": 0.17223839047505862,
+                "tokens": [
+                    6309,
+                    13
+                ]
+            }
+        ],
+        "text": " Canada."
+    },
+    {
+        "end": 113.36,
+        "start": 113.02,
+        "words": [
+            {
+                "word": "  Đặc",
+                "start": 113.02,
+                "end": 113.14,
+                "probability": 0.22076279988201955,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 113.14,
+                "end": 113.36,
+                "probability": 0.5426578832363399,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            }
+        ],
+        "text": "  Đặc điểm:"
+    },
+    {
+        "end": 117.54,
+        "start": 114.04,
+        "words": [
+            {
+                "word": " Giống",
+                "start": 114.04,
+                "end": 114.94,
+                "probability": 0.011960256357269827,
+                "tokens": [
+                    15334,
+                    21092
+                ]
+            },
+            {
+                "word": " Golden",
+                "start": 114.94,
+                "end": 114.94,
+                "probability": 0.000009891307854559273,
+                "tokens": [
+                    13410
+                ]
+            },
+            {
+                "word": " nhưng",
+                "start": 114.94,
+                "end": 116.3,
+                "probability": 0.0000016221986243181163,
+                "tokens": [
+                    37504
+                ]
+            },
+            {
+                "word": " lông",
+                "start": 116.3,
+                "end": 116.62,
+                "probability": 0.005851435649674386,
+                "tokens": [
+                    287,
+                    8217
+                ]
+            },
+            {
+                "word": " ngắn",
+                "start": 116.62,
+                "end": 116.62,
+                "probability": 0.0009719966546981595,
+                "tokens": [
+                    6415,
+                    42348
+                ]
+            },
+            {
+                "word": " hơn,",
+                "start": 116.62,
+                "end": 117.54,
+                "probability": 0.04532247383031063,
+                "tokens": [
+                    34335,
+                    11
+                ]
+            }
+        ],
+        "text": " Giống Golden nhưng lông ngắn hơn,"
+    },
+    {
+        "end": 127.72,
+        "start": 126.55,
+        "words": [
+            {
+                "word": " màu",
+                "start": 126.55,
+                "end": 126.8,
+                "probability": 0.04091882589273155,
+                "tokens": [
+                    13901,
+                    84
+                ]
+            },
+            {
+                "word": " đen,",
+                "start": 126.8,
+                "end": 126.8,
+                "probability": 0.07055172603577375,
+                "tokens": [
+                    2934,
+                    268,
+                    11
+                ]
+            },
+            {
+                "word": " vàng",
+                "start": 127.1,
+                "end": 127.2,
+                "probability": 0.05898232478648424,
+                "tokens": [
+                    10274,
+                    872
+                ]
+            },
+            {
+                "word": " hoặc",
+                "start": 127.2,
+                "end": 127.62,
+                "probability": 0.014646584168076515,
+                "tokens": [
+                    1106,
+                    38464
+                ]
+            },
+            {
+                "word": " socola.",
+                "start": 127.62,
+                "end": 127.72,
+                "probability": 0.06363351453743842,
+                "tokens": [
+                    13598,
+                    4711,
+                    13
+                ]
+            }
+        ],
+        "text": " màu đen, vàng hoặc socola."
+    },
+    {
+        "end": 129.92,
+        "start": 129.08,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 129.08,
+                "end": 129.2,
+                "probability": 0.028879272765649944,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 129.2,
+                "end": 129.44,
+                "probability": 0.45736607172875665,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            },
+            {
+                "word": " Hòa",
+                "start": 129.9,
+                "end": 129.92,
+                "probability": 0.1501200190396048,
+                "tokens": [
+                    389,
+                    4293,
+                    64
+                ]
+            },
+            {
+                "word": " đồng,",
+                "start": 129.92,
+                "end": 129.92,
+                "probability": 0.06850959981481235,
+                "tokens": [
+                    2934,
+                    35070,
+                    11
+                ]
+            }
+        ],
+        "text": "  Tính cách: Hòa đồng,"
+    },
+    {
+        "end": 130.46,
+        "start": 129.92,
+        "words": [
+            {
+                "word": " trung",
+                "start": 129.92,
+                "end": 129.94,
+                "probability": 0.022873212583363056,
+                "tokens": [
+                    504,
+                    1063
+                ]
+            },
+            {
+                "word": " thành,",
+                "start": 129.94,
+                "end": 130.46,
+                "probability": 0.6024225652217865,
+                "tokens": [
+                    39953,
+                    11
+                ]
+            }
+        ],
+        "text": " trung thành,"
+    },
+    {
+        "end": 131.36,
+        "start": 130.71,
+        "words": [
+            {
+                "word": " thích",
+                "start": 130.71,
+                "end": 131.06,
+                "probability": 0.018926905640455516,
+                "tokens": [
+                    258,
+                    30839
+                ]
+            },
+            {
+                "word": " chơi",
+                "start": 131.22,
+                "end": 131.36,
+                "probability": 0.00976340426132083,
+                "tokens": [
+                    417,
+                    21537
+                ]
+            },
+            {
+                "word": " đùa.",
+                "start": 131.36,
+                "end": 131.36,
+                "probability": 0.2474202683661133,
+                "tokens": [
+                    2934,
+                    5035,
+                    64,
+                    13
+                ]
+            }
+        ],
+        "text": " thích chơi đùa."
+    },
+    {
+        "end": 134.98,
+        "start": 132,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 132,
+                "end": 132.1,
+                "probability": 0.38044614961836487,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 132.1,
+                "end": 132.24,
+                "probability": 0.3616368770599365,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 132.24,
+                "end": 132.42,
+                "probability": 0.3153552711009979,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 132.42,
+                "end": 133.2,
+                "probability": 0.5891642285581232,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            },
+            {
+                "word": " Cần",
+                "start": 133.7,
+                "end": 134.3,
+                "probability": 0.2996899464633316,
+                "tokens": [
+                    383,
+                    18241
+                ]
+            },
+            {
+                "word": " nhiều",
+                "start": 134.5,
+                "end": 134.62,
+                "probability": 0.000196123932255432,
+                "tokens": [
+                    28272
+                ]
+            },
+            {
+                "word": " hoạt",
+                "start": 134.62,
+                "end": 134.94,
+                "probability": 0.017188401019666344,
+                "tokens": [
+                    1106,
+                    44664
+                ]
+            },
+            {
+                "word": " động",
+                "start": 134.94,
+                "end": 134.94,
+                "probability": 0.7107241749763489,
+                "tokens": [
+                    46880
+                ]
+            },
+            {
+                "word": " thể",
+                "start": 134.94,
+                "end": 134.94,
+                "probability": 0.000464677024865523,
+                "tokens": [
+                    24491
+                ]
+            },
+            {
+                "word": " chất.",
+                "start": 134.94,
+                "end": 134.98,
+                "probability": 0.049557855197538934,
+                "tokens": [
+                    417,
+                    12436,
+                    13
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi: Cần nhiều hoạt động thể chất."
+    },
+    {
+        "end": 136.8,
+        "start": 136.8,
+        "words": [
+            {
+                "word": "  7",
+                "start": 136.8,
+                "end": 136.8,
+                "probability": 0.014999386527051684,
+                "tokens": [
+                    220,
+                    1614
+                ]
+            }
+        ],
+        "text": "  7"
+    },
+    {
+        "end": 141.3,
+        "start": 139.32,
+        "words": [
+            {
+                "word": " Chó",
+                "start": 139.32,
+                "end": 139.58,
+                "probability": 0.030182494083419442,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Shiba",
+                "start": 139.58,
+                "end": 139.92,
+                "probability": 0.00038721898090443574,
+                "tokens": [
+                    1160,
+                    17036
+                ]
+            },
+            {
+                "word": " Inu.",
+                "start": 139.92,
+                "end": 140.32,
+                "probability": 0.19563686226805052,
+                "tokens": [
+                    682,
+                    84,
+                    13
+                ]
+            },
+            {
+                "word": "  Nguồn",
+                "start": 140.94,
+                "end": 141.04,
+                "probability": 0.43130135387182233,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 141.04,
+                "end": 141.3,
+                "probability": 0.4002455562488952,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            }
+        ],
+        "text": " Chó Shiba Inu.  Nguồn gốc:"
+    },
+    {
+        "end": 146.2,
+        "start": 141.94,
+        "words": [
+            {
+                "word": " Nhật",
+                "start": 141.94,
+                "end": 142,
+                "probability": 0.004559586755931377,
+                "tokens": [
+                    26390,
+                    25296
+                ]
+            },
+            {
+                "word": " Bản.",
+                "start": 142,
+                "end": 144.4,
+                "probability": 0.06994580213601391,
+                "tokens": [
+                    363,
+                    31926,
+                    13
+                ]
+            },
+            {
+                "word": "  Đặc",
+                "start": 144.4,
+                "end": 145.48,
+                "probability": 0.0679590900739034,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 145.48,
+                "end": 145.58,
+                "probability": 0.5359567647101358,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            },
+            {
+                "word": " Nhỏ",
+                "start": 146.04,
+                "end": 146.04,
+                "probability": 0.00017026530986186117,
+                "tokens": [
+                    26390,
+                    21920
+                ]
+            },
+            {
+                "word": " nhắn,",
+                "start": 146.04,
+                "end": 146.2,
+                "probability": 0.10992788620448361,
+                "tokens": [
+                    6245,
+                    42348,
+                    11
+                ]
+            }
+        ],
+        "text": " Nhật Bản.  Đặc điểm: Nhỏ nhắn,"
+    },
+    {
+        "end": 146.44,
+        "start": 146.44,
+        "words": [
+            {
+                "word": " mặt",
+                "start": 146.44,
+                "end": 146.44,
+                "probability": 0.010665088542737067,
+                "tokens": [
+                    275,
+                    38248
+                ]
+            },
+            {
+                "word": " cáo,",
+                "start": 146.44,
+                "end": 146.44,
+                "probability": 0.2554423314383409,
+                "tokens": [
+                    6476,
+                    78,
+                    11
+                ]
+            }
+        ],
+        "text": " mặt cáo,"
+    },
+    {
+        "end": 147.46,
+        "start": 146.44,
+        "words": [
+            {
+                "word": " lông",
+                "start": 146.44,
+                "end": 146.46,
+                "probability": 0.01914571445377078,
+                "tokens": [
+                    287,
+                    8217
+                ]
+            },
+            {
+                "word": " dày,",
+                "start": 146.46,
+                "end": 147.46,
+                "probability": 0.21604316834903634,
+                "tokens": [
+                    274,
+                    9524,
+                    11
+                ]
+            }
+        ],
+        "text": " lông dày,"
+    },
+    {
+        "end": 147.6,
+        "start": 147.6,
+        "words": [
+            {
+                "word": " đuôi",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.03737593380113443,
+                "tokens": [
+                    2934,
+                    84,
+                    12213
+                ]
+            },
+            {
+                "word": " cuộn",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.32152559264795855,
+                "tokens": [
+                    2702,
+                    8047,
+                    77
+                ]
+            },
+            {
+                "word": " tròn.",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.03386931338657936,
+                "tokens": [
+                    504,
+                    23329,
+                    13
+                ]
+            }
+        ],
+        "text": " đuôi cuộn tròn."
+    },
+    {
+        "end": 147.6,
+        "start": 147.6,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.001326137172531124,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.0019145771802868694,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            },
+            {
+                "word": " Độc",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.015050522677483968,
+                "tokens": [
+                    13055,
+                    34259
+                ]
+            },
+            {
+                "word": " lập,",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.03853944440682729,
+                "tokens": [
+                    287,
+                    35148,
+                    11
+                ]
+            }
+        ],
+        "text": "  Tính cách: Độc lập,"
+    },
+    {
+        "end": 147.6,
+        "start": 147.6,
+        "words": [
+            {
+                "word": " thông",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.04062862228602171,
+                "tokens": [
+                    258,
+                    8217
+                ]
+            },
+            {
+                "word": " minh,",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.5585463140159845,
+                "tokens": [
+                    923,
+                    71,
+                    11
+                ]
+            }
+        ],
+        "text": " thông minh,"
+    },
+    {
+        "end": 147.6,
+        "start": 147.6,
+        "words": [
+            {
+                "word": " đôi",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.03899239655584097,
+                "tokens": [
+                    2934,
+                    12213
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.003053398570045829,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " khó",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.10220206080703065,
+                "tokens": [
+                    7168,
+                    812
+                ]
+            },
+            {
+                "word": " bảo.",
+                "start": 147.6,
+                "end": 147.6,
+                "probability": 0.01674223194519679,
+                "tokens": [
+                    272,
+                    40657,
+                    13
+                ]
+            }
+        ],
+        "text": " đôi khi khó bảo."
+    },
+    {
+        "end": 149.84,
+        "start": 148.26,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 148.26,
+                "end": 148.4,
+                "probability": 0.2644574618898332,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 148.4,
+                "end": 148.5,
+                "probability": 0.3061700761318207,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 148.5,
+                "end": 148.66,
+                "probability": 0.26773524284362793,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 148.66,
+                "end": 149.04,
+                "probability": 0.6306235030785198,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            },
+            {
+                "word": " Cần",
+                "start": 149.36,
+                "end": 149.46,
+                "probability": 0.005325351467035944,
+                "tokens": [
+                    383,
+                    18241
+                ]
+            },
+            {
+                "word": " huấn",
+                "start": 149.46,
+                "end": 149.84,
+                "probability": 0.0026571995695121586,
+                "tokens": [
+                    2137,
+                    43975
+                ]
+            },
+            {
+                "word": " luyện",
+                "start": 149.84,
+                "end": 149.84,
+                "probability": 0.41404453416665393,
+                "tokens": [
+                    287,
+                    7493,
+                    19679
+                ]
+            },
+            {
+                "word": " sớm,",
+                "start": 149.84,
+                "end": 149.84,
+                "probability": 0.3158682050416246,
+                "tokens": [
+                    262,
+                    27260,
+                    76,
+                    11
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi: Cần huấn luyện sớm,"
+    },
+    {
+        "end": 151.42,
+        "start": 150.29,
+        "words": [
+            {
+                "word": " dễ",
+                "start": 150.29,
+                "end": 150.74,
+                "probability": 0.5227232091128826,
+                "tokens": [
+                    274,
+                    36664
+                ]
+            },
+            {
+                "word": " mắc",
+                "start": 150.74,
+                "end": 150.88,
+                "probability": 0.5859742760658264,
+                "tokens": [
+                    275,
+                    30838
+                ]
+            },
+            {
+                "word": " chứng",
+                "start": 150.88,
+                "end": 151.06,
+                "probability": 0.0006370790651999414,
+                "tokens": [
+                    417,
+                    44555
+                ]
+            },
+            {
+                "word": " bướng",
+                "start": 151.06,
+                "end": 151.14,
+                "probability": 0.3016905470688774,
+                "tokens": [
+                    272,
+                    17059,
+                    872
+                ]
+            },
+            {
+                "word": " bỉnh.",
+                "start": 151.14,
+                "end": 151.42,
+                "probability": 0.16226989863207564,
+                "tokens": [
+                    272,
+                    43325,
+                    5728,
+                    13
+                ]
+            }
+        ],
+        "text": " dễ mắc chứng bướng bỉnh."
+    },
+    {
+        "end": 153.46,
+        "start": 152.08,
+        "words": [
+            {
+                "word": "  8",
+                "start": 152.08,
+                "end": 152.22,
+                "probability": 0.005810194684954695,
+                "tokens": [
+                    220,
+                    1649
+                ]
+            },
+            {
+                "word": " Chó",
+                "start": 152.22,
+                "end": 152.8,
+                "probability": 0.004440916236490011,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Chihuahua.",
+                "start": 152.8,
+                "end": 153.46,
+                "probability": 0.2204928616672987,
+                "tokens": [
+                    761,
+                    44344,
+                    545,
+                    4398,
+                    13
+                ]
+            }
+        ],
+        "text": "  8 Chó Chihuahua."
+    },
+    {
+        "end": 154.22,
+        "start": 154.01,
+        "words": [
+            {
+                "word": "  Nguồn",
+                "start": 154.01,
+                "end": 154.16,
+                "probability": 0.24655800750756782,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 154.16,
+                "end": 154.16,
+                "probability": 0.008249408056144603,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            },
+            {
+                "word": " Mexico.",
+                "start": 154.16,
+                "end": 154.22,
+                "probability": 0.16876014220724755,
+                "tokens": [
+                    8612,
+                    13
+                ]
+            }
+        ],
+        "text": "  Nguồn gốc: Mexico."
+    },
+    {
+        "end": 155,
+        "start": 154.22,
+        "words": [
+            {
+                "word": "  Đặc",
+                "start": 154.22,
+                "end": 154.36,
+                "probability": 0.053465693102528654,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 154.36,
+                "end": 155,
+                "probability": 0.2503320142956606,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            }
+        ],
+        "text": "  Đặc điểm:"
+    },
+    {
+        "end": 155.96,
+        "start": 155.7,
+        "words": [
+            {
+                "word": " Nhỏ",
+                "start": 155.7,
+                "end": 155.7,
+                "probability": 0.0004597973675117828,
+                "tokens": [
+                    26390,
+                    21920
+                ]
+            },
+            {
+                "word": " nhất",
+                "start": 155.7,
+                "end": 155.96,
+                "probability": 0.00026752331177704036,
+                "tokens": [
+                    41081
+                ]
+            },
+            {
+                "word": " thế",
+                "start": 155.96,
+                "end": 155.96,
+                "probability": 0.001904604840092361,
+                "tokens": [
+                    27100
+                ]
+            },
+            {
+                "word": " giới,",
+                "start": 155.96,
+                "end": 155.96,
+                "probability": 0.5194159174958864,
+                "tokens": [
+                    1735,
+                    12242,
+                    11
+                ]
+            },
+            {
+                "word": " tai",
+                "start": 155.96,
+                "end": 155.96,
+                "probability": 0.0000014749700767424656,
+                "tokens": [
+                    20499
+                ]
+            },
+            {
+                "word": " lớn,",
+                "start": 155.96,
+                "end": 155.96,
+                "probability": 0.2313595121668186,
+                "tokens": [
+                    47864,
+                    77,
+                    11
+                ]
+            },
+            {
+                "word": " mắt",
+                "start": 155.96,
+                "end": 155.96,
+                "probability": 0.011586807202547789,
+                "tokens": [
+                    275,
+                    31454
+                ]
+            },
+            {
+                "word": " to.",
+                "start": 155.96,
+                "end": 155.96,
+                "probability": 0.0021406971209216863,
+                "tokens": [
+                    281,
+                    13
+                ]
+            }
+        ],
+        "text": " Nhỏ nhất thế giới, tai lớn, mắt to."
+    },
+    {
+        "end": 156.99,
+        "start": 155.96,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 155.96,
+                "end": 156.02,
+                "probability": 0.005092117275732259,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 156.02,
+                "end": 156.36,
+                "probability": 0.003370726597495377,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            },
+            {
+                "word": " Can",
+                "start": 156.64,
+                "end": 156.64,
+                "probability": 0.0006795413792133331,
+                "tokens": [
+                    1664
+                ]
+            },
+            {
+                "word": " đảm,",
+                "start": 156.64,
+                "end": 156.66,
+                "probability": 0.2581997185916407,
+                "tokens": [
+                    2934,
+                    7398,
+                    76,
+                    11
+                ]
+            },
+            {
+                "word": " đôi",
+                "start": 156.66,
+                "end": 156.7,
+                "probability": 0.014163953019306064,
+                "tokens": [
+                    2934,
+                    12213
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 156.7,
+                "end": 156.72,
+                "probability": 0.005151176825165749,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " khá",
+                "start": 156.72,
+                "end": 156.84,
+                "probability": 0.04857750586234033,
+                "tokens": [
+                    7168,
+                    842
+                ]
+            },
+            {
+                "word": " “chảnh”.",
+                "start": 156.84,
+                "end": 156.99,
+                "probability": 0.039153168699670005,
+                "tokens": [
+                    1059,
+                    250,
+                    339,
+                    7398,
+                    5728,
+                    913,
+                    251,
+                    13
+                ]
+            }
+        ],
+        "text": "  Tính cách: Can đảm, đôi khi khá “chảnh”."
+    },
+    {
+        "end": 158.86,
+        "start": 157.92,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 157.92,
+                "end": 158.04,
+                "probability": 0.2539927589241415,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 158.04,
+                "end": 158.04,
+                "probability": 0.0007845486979931593,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 158.04,
+                "end": 158.62,
+                "probability": 0.00035884379758499563,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 158.62,
+                "end": 158.86,
+                "probability": 0.27879365993006405,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi:"
+    },
+    {
+        "end": 162.56,
+        "start": 159.42,
+        "words": [
+            {
+                "word": " Nhỏ",
+                "start": 159.42,
+                "end": 159.56,
+                "probability": 0.012645442970097065,
+                "tokens": [
+                    26390,
+                    21920
+                ]
+            },
+            {
+                "word": " bé",
+                "start": 159.56,
+                "end": 159.56,
+                "probability": 0.00008065930160228163,
+                "tokens": [
+                    15807
+                ]
+            },
+            {
+                "word": " nên",
+                "start": 159.56,
+                "end": 159.56,
+                "probability": 0.00011021640966646373,
+                "tokens": [
+                    40606
+                ]
+            },
+            {
+                "word": " dễ",
+                "start": 159.56,
+                "end": 161.06,
+                "probability": 0.018509327434003353,
+                "tokens": [
+                    274,
+                    36664
+                ]
+            },
+            {
+                "word": " bị",
+                "start": 161.06,
+                "end": 161.28,
+                "probability": 0.013248920440673828,
+                "tokens": [
+                    32113
+                ]
+            },
+            {
+                "word": " thương,",
+                "start": 161.28,
+                "end": 161.86,
+                "probability": 0.04136247560381889,
+                "tokens": [
+                    258,
+                    24605,
+                    11
+                ]
+            },
+            {
+                "word": " cần",
+                "start": 162.18,
+                "end": 162.18,
+                "probability": 0.00018593708227854222,
+                "tokens": [
+                    47580
+                ]
+            },
+            {
+                "word": " chú",
+                "start": 162.18,
+                "end": 162.18,
+                "probability": 0.010772813344374299,
+                "tokens": [
+                    417,
+                    2481
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 162.18,
+                "end": 162.18,
+                "probability": 0.20362116396427155,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " bảo",
+                "start": 162.18,
+                "end": 162.18,
+                "probability": 0.03293887199833989,
+                "tokens": [
+                    272,
+                    40657
+                ]
+            },
+            {
+                "word": " vệ.",
+                "start": 162.18,
+                "end": 162.56,
+                "probability": 0.4596375375986099,
+                "tokens": [
+                    371,
+                    8471,
+                    13
+                ]
+            }
+        ],
+        "text": " Nhỏ bé nên dễ bị thương, cần chú ý bảo vệ."
+    },
+    {
+        "end": 163.6,
+        "start": 163.46,
+        "words": [
+            {
+                "word": "  9",
+                "start": 163.46,
+                "end": 163.6,
+                "probability": 0.001918776107750375,
+                "tokens": [
+                    220,
+                    1722
+                ]
+            }
+        ],
+        "text": "  9"
+    },
+    {
+        "end": 165.42,
+        "start": 165.42,
+        "words": [
+            {
+                "word": " Chó",
+                "start": 165.42,
+                "end": 165.42,
+                "probability": 0.01843878268118715,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Becgie",
+                "start": 165.42,
+                "end": 165.42,
+                "probability": 0.0002286434205416299,
+                "tokens": [
+                    879,
+                    66,
+                    9997
+                ]
+            },
+            {
+                "word": " Đức",
+                "start": 165.42,
+                "end": 165.42,
+                "probability": 0.008923463523387909,
+                "tokens": [
+                    13055,
+                    27138
+                ]
+            },
+            {
+                "word": " (German",
+                "start": 165.42,
+                "end": 165.42,
+                "probability": 0.004227259702020092,
+                "tokens": [
+                    522,
+                    38,
+                    11821
+                ]
+            },
+            {
+                "word": " Shepherd).",
+                "start": 165.42,
+                "end": 165.42,
+                "probability": 0.0005421355072030565,
+                "tokens": [
+                    43395,
+                    3050
+                ]
+            }
+        ],
+        "text": " Chó Becgie Đức (German Shepherd)."
+    },
+    {
+        "end": 165.56,
+        "start": 165.42,
+        "words": [
+            {
+                "word": "  Nguồn",
+                "start": 165.42,
+                "end": 165.44,
+                "probability": 0.262894077015153,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 165.54,
+                "end": 165.56,
+                "probability": 0.00027493051190200884,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            },
+            {
+                "word": " Đức.",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.005452914590326448,
+                "tokens": [
+                    13055,
+                    27138,
+                    13
+                ]
+            }
+        ],
+        "text": "  Nguồn gốc: Đức."
+    },
+    {
+        "end": 165.56,
+        "start": 165.56,
+        "words": [
+            {
+                "word": "  Đặc",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.001993642576659719,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.17691039497731254,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            },
+            {
+                "word": " Lớn,",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.05480301329953363,
+                "tokens": [
+                    441,
+                    27260,
+                    77,
+                    11
+                ]
+            },
+            {
+                "word": " cơ",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.036162146367132664,
+                "tokens": [
+                    269,
+                    9621
+                ]
+            },
+            {
+                "word": " bắp,",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.33443650501430966,
+                "tokens": [
+                    272,
+                    12195,
+                    79,
+                    11
+                ]
+            },
+            {
+                "word": " bộ",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.042746045626699924,
+                "tokens": [
+                    272,
+                    8047
+                ]
+            },
+            {
+                "word": " lông",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.0060492502234410495,
+                "tokens": [
+                    287,
+                    8217
+                ]
+            },
+            {
+                "word": " dày.",
+                "start": 165.56,
+                "end": 165.56,
+                "probability": 0.0322998181800358,
+                "tokens": [
+                    274,
+                    9524,
+                    13
+                ]
+            }
+        ],
+        "text": "  Đặc điểm: Lớn, cơ bắp, bộ lông dày."
+    },
+    {
+        "end": 165.6,
+        "start": 165.6,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.001395449708676703,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.0005651722713082563,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            },
+            {
+                "word": " Trung",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.00003768472379306331,
+                "tokens": [
+                    40555
+                ]
+            },
+            {
+                "word": " thành,",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.01022276288131252,
+                "tokens": [
+                    39953,
+                    11
+                ]
+            },
+            {
+                "word": " thông",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.01603569695726037,
+                "tokens": [
+                    258,
+                    8217
+                ]
+            },
+            {
+                "word": " minh,",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.4672281062230468,
+                "tokens": [
+                    923,
+                    71,
+                    11
+                ]
+            },
+            {
+                "word": " dũng",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.26233484619297087,
+                "tokens": [
+                    274,
+                    129,
+                    21077
+                ]
+            },
+            {
+                "word": " cảm.",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.01533426191599574,
+                "tokens": [
+                    47593,
+                    13
+                ]
+            }
+        ],
+        "text": "  Tính cách: Trung thành, thông minh, dũng cảm."
+    },
+    {
+        "end": 165.6,
+        "start": 165.6,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.25107888522325084,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.0007022767676971853,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.0005402622045949101,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.17102773228058746,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            },
+            {
+                "word": " Phù",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.0038406250532716513,
+                "tokens": [
+                    2623,
+                    5035
+                ]
+            },
+            {
+                "word": " hợp",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.38012108330925304,
+                "tokens": [
+                    276,
+                    27836,
+                    79
+                ]
+            },
+            {
+                "word": " với",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.006436820607632399,
+                "tokens": [
+                    18916
+                ]
+            },
+            {
+                "word": " vai",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.00005581770165008493,
+                "tokens": [
+                    4405
+                ]
+            },
+            {
+                "word": " trò",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.04636916145682335,
+                "tokens": [
+                    504,
+                    4293
+                ]
+            },
+            {
+                "word": " bảo",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.008583819726482034,
+                "tokens": [
+                    272,
+                    40657
+                ]
+            },
+            {
+                "word": " vệ,",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.3840684195359548,
+                "tokens": [
+                    371,
+                    8471,
+                    11
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi: Phù hợp với vai trò bảo vệ,"
+    },
+    {
+        "end": 165.62,
+        "start": 165.6,
+        "words": [
+            {
+                "word": " cần",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.00006508714432129636,
+                "tokens": [
+                    47580
+                ]
+            },
+            {
+                "word": " không",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.011679545044898987,
+                "tokens": [
+                    11415
+                ]
+            },
+            {
+                "word": " gian",
+                "start": 165.6,
+                "end": 165.6,
+                "probability": 0.0066281555918976665,
+                "tokens": [
+                    290,
+                    952
+                ]
+            },
+            {
+                "word": " rộng.",
+                "start": 165.6,
+                "end": 165.62,
+                "probability": 0.24352602823637426,
+                "tokens": [
+                    367,
+                    8047,
+                    872,
+                    13
+                ]
+            }
+        ],
+        "text": " cần không gian rộng."
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": " rộng.",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    367,
+                    8047,
+                    872,
+                    13
+                ]
+            }
+        ],
+        "text": " rộng."
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": "  10",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    1266
+                ]
+            },
+            {
+                "word": " Chó",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    761,
+                    812
+                ]
+            },
+            {
+                "word": " Bulldog",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    14131,
+                    14833
+                ]
+            },
+            {
+                "word": " Anh.",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    23574,
+                    13
+                ]
+            },
+            {
+                "word": "  Nguồn",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    426,
+                    2794,
+                    11057,
+                    77
+                ]
+            },
+            {
+                "word": " gốc:",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    290,
+                    24426,
+                    25
+                ]
+            },
+            {
+                "word": " Anh.",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    23574,
+                    13
+                ]
+            },
+            {
+                "word": "  Đặc",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    13055,
+                    38464
+                ]
+            },
+            {
+                "word": " điểm:",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    13264,
+                    47119,
+                    25
+                ]
+            },
+            {
+                "word": " Thân",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    334,
+                    9667
+                ]
+            },
+            {
+                "word": " hình",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    276,
+                    10116
+                ]
+            },
+            {
+                "word": " chắc",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    417,
+                    30838
+                ]
+            },
+            {
+                "word": " chắn,",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    417,
+                    42348,
+                    11
+                ]
+            }
+        ],
+        "text": "  10 Chó Bulldog Anh.  Nguồn gốc: Anh.  Đặc điểm: Thân hình chắc chắn,"
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": " mặt",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    275,
+                    38248
+                ]
+            },
+            {
+                "word": " nhăn",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    6245,
+                    49214
+                ]
+            },
+            {
+                "word": " đặc",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    2934,
+                    38464
+                ]
+            },
+            {
+                "word": " trưng.",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    504,
+                    42509,
+                    13
+                ]
+            }
+        ],
+        "text": " mặt nhăn đặc trưng."
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": "  Tính",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    314,
+                    26994
+                ]
+            },
+            {
+                "word": " cách:",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    45762,
+                    25
+                ]
+            },
+            {
+                "word": " Hiền",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    2421,
+                    26871
+                ]
+            },
+            {
+                "word": " lành,",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    3684,
+                    5728,
+                    11
+                ]
+            },
+            {
+                "word": " dễ",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    274,
+                    36664
+                ]
+            },
+            {
+                "word": " thương,",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    258,
+                    24605,
+                    11
+                ]
+            },
+            {
+                "word": " chậm",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    417,
+                    9973,
+                    76
+                ]
+            },
+            {
+                "word": " chạp.",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    417,
+                    5890,
+                    79,
+                    13
+                ]
+            }
+        ],
+        "text": "  Tính cách: Hiền lành, dễ thương, chậm chạp."
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": "  Lưu",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    441,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " khi",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    23526
+                ]
+            },
+            {
+                "word": " nuôi:",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    3822,
+                    12213,
+                    25
+                ]
+            },
+            {
+                "word": " Nhạy",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    26390,
+                    5890,
+                    88
+                ]
+            },
+            {
+                "word": " cảm",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    47593
+                ]
+            },
+            {
+                "word": " với",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    18916
+                ]
+            },
+            {
+                "word": " thời",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    49506
+                ]
+            },
+            {
+                "word": " tiết",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    8757,
+                    13888
+                ]
+            },
+            {
+                "word": " nóng,",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    6604,
+                    872,
+                    11
+                ]
+            }
+        ],
+        "text": "  Lưu ý khi nuôi: Nhạy cảm với thời tiết nóng,"
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": " dễ",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    274,
+                    36664
+                ]
+            },
+            {
+                "word": " mắc",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    275,
+                    30838
+                ]
+            },
+            {
+                "word": " bệnh",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    272,
+                    8471,
+                    5728
+                ]
+            },
+            {
+                "word": " đường",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    2934,
+                    24280
+                ]
+            },
+            {
+                "word": " hô",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    276,
+                    2851
+                ]
+            },
+            {
+                "word": " hấp.",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    276,
+                    47176,
+                    13
+                ]
+            }
+        ],
+        "text": " dễ mắc bệnh đường hô hấp."
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": "  Trên",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    1765,
+                    5050
+                ]
+            },
+            {
+                "word": " đây",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    20199
+                ]
+            },
+            {
+                "word": " là",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    3684
+                ]
+            },
+            {
+                "word": " một",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    15486
+                ]
+            },
+            {
+                "word": " số",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    44983
+                ]
+            },
+            {
+                "word": " giống",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    1735,
+                    21092
+                ]
+            },
+            {
+                "word": " chó",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    417,
+                    812
+                ]
+            },
+            {
+                "word": " phổ",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    903,
+                    20950
+                ]
+            },
+            {
+                "word": " biến,",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    3228,
+                    16240,
+                    11
+                ]
+            }
+        ],
+        "text": "  Trên đây là một số giống chó phổ biến,"
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": " mỗi",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    275,
+                    49572
+                ]
+            },
+            {
+                "word": " giống",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    1735,
+                    21092
+                ]
+            },
+            {
+                "word": " đều",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    2934,
+                    17310
+                ]
+            },
+            {
+                "word": " có",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    6333
+                ]
+            },
+            {
+                "word": " ưu",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    4228,
+                    84
+                ]
+            },
+            {
+                "word": " điểm",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    13264,
+                    47119
+                ]
+            },
+            {
+                "word": " riêng,",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    19739,
+                    1307,
+                    872,
+                    11
+                ]
+            }
+        ],
+        "text": " mỗi giống đều có ưu điểm riêng,"
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": " phù",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    903,
+                    5035
+                ]
+            },
+            {
+                "word": " hợp",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    276,
+                    27836,
+                    79
+                ]
+            },
+            {
+                "word": " với",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    18916
+                ]
+            },
+            {
+                "word": " từng",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    26834,
+                    872
+                ]
+            },
+            {
+                "word": " nhu",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    6245,
+                    84
+                ]
+            },
+            {
+                "word": " cầu",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    269,
+                    23582
+                ]
+            },
+            {
+                "word": " nuôi",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    3822,
+                    12213
+                ]
+            },
+            {
+                "word": " khác",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    43713
+                ]
+            },
+            {
+                "word": " nhau.",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    6245,
+                    1459,
+                    13
+                ]
+            }
+        ],
+        "text": " phù hợp với từng nhu cầu nuôi khác nhau."
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": "  Nếu",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    426,
+                    30568
+                ]
+            },
+            {
+                "word": " bạn",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    14647
+                ]
+            },
+            {
+                "word": " đang",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    30723
+                ]
+            },
+            {
+                "word": " có",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    6333
+                ]
+            },
+            {
+                "word": " ý",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    49291
+                ]
+            },
+            {
+                "word": " định",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    42063,
+                    5728
+                ]
+            },
+            {
+                "word": " nuôi",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    3822,
+                    12213
+                ]
+            },
+            {
+                "word": " chó,",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    417,
+                    812,
+                    11
+                ]
+            }
+        ],
+        "text": "  Nếu bạn đang có ý định nuôi chó,"
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": " hãy",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    276,
+                    49205
+                ]
+            },
+            {
+                "word": " tìm",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    256,
+                    4749,
+                    76
+                ]
+            },
+            {
+                "word": " hiểu",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    4879,
+                    40328
+                ]
+            },
+            {
+                "word": " kỹ",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    350,
+                    40085
+                ]
+            },
+            {
+                "word": " để",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    20081
+                ]
+            },
+            {
+                "word": " chọn",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    417,
+                    47246
+                ]
+            },
+            {
+                "word": " giống",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    1735,
+                    21092
+                ]
+            },
+            {
+                "word": " phù",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    903,
+                    5035
+                ]
+            },
+            {
+                "word": " hợp",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    276,
+                    27836,
+                    79
+                ]
+            },
+            {
+                "word": " với",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    18916
+                ]
+            }
+        ],
+        "text": " hãy tìm hiểu kỹ để chọn giống phù hợp với"
+    },
+    {
+        "end": 165.82,
+        "start": 165.82,
+        "words": [
+            {
+                "word": " điều",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    42082
+                ]
+            },
+            {
+                "word": " kiện",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    6315,
+                    19679
+                ]
+            },
+            {
+                "word": " sống",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    262,
+                    21092
+                ]
+            },
+            {
+                "word": " và",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    10274
+                ]
+            },
+            {
+                "word": " phong",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    903,
+                    556
+                ]
+            },
+            {
+                "word": " cách",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    45762
+                ]
+            },
+            {
+                "word": " của",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    11990
+                ]
+            },
+            {
+                "word": " mình!",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    14526,
+                    0
+                ]
+            },
+            {
+                "word": "  .",
+                "start": 165.82,
+                "end": 165.82,
+                "probability": 0,
+                "tokens": [
+                    220,
+                    2411
+                ]
+            }
+        ],
+        "text": " điều kiện sống và phong cách của mình!  ."
+    }
+]
