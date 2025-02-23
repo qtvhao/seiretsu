@@ -1,6 +1,7 @@
 import { ValidSegmentsExtractor } from "./validSegmentsExtractor";
 import { TextSegment } from "./segment";
 import { TranscriptSegment } from "./align";
+import levenshtein from 'fast-levenshtein';
 
 export class BestSentenceMatcher {
     private transcriptEntries: TextSegment[];
@@ -34,12 +35,18 @@ export class BestSentenceMatcher {
         return new ValidSegmentsExtractor(tolerance).extractValidSegments(this.transcriptEntries);
     }
 
-    private computeLevenshtein(sentence: string, segment: TextSegment): number {
-        const key = `${sentence}-${segment.rawText}`;
-        if (this.levenshteinCache.has(key)) return this.levenshteinCache.get(key)!;
+    private getLastNWords(texts: string[], n: number): string {
+        return texts.join(' ').replace(/\s+/g, ' ').trim().split(' ').slice(-n).join(' ');
+    }
+    
+    private computeLevenshtein(texts1: string[], texts2: string[], wordLimit: number = 12): number {
+        const str1 = this.getLastNWords(texts1, wordLimit);
+        const str2 = this.getLastNWords(texts2, wordLimit);
+        const distance = levenshtein.get(str1, str2);
+        if (distance < 10) {
+            console.log({str1, str2, distance})
+        }
 
-        const distance = segment.computeLevenshteinDistance([sentence]);
-        this.levenshteinCache.set(key, distance);
         return distance;
     }
 
@@ -55,8 +62,8 @@ export class BestSentenceMatcher {
         let lowestDistance = Infinity;
 
         this.expectedSentences.forEach((_, index) => {
-            filteredSegments.forEach(segment => {
-                const distance = this.computeLevenshtein(this.expectedSentences.slice(0, index + 1).join(" "), segment);
+            filteredSegments.forEach((_, segmentIndex) => {
+                const distance = this.computeLevenshtein(this.expectedSentences.slice(0, index + 1), filteredSegments.slice(0, segmentIndex + 1).map(a=>a.rawText))
                 if (distance <= lowestDistance && distance < 20) {
                     lowestDistance = distance;
                     bestMatchIndex = index;
@@ -85,7 +92,7 @@ export class BestSentenceMatcher {
 
         filteredSegments.forEach((segment, index) => {
             matchedSentences.forEach((_, sentenceIndex) => {
-                const distance = this.computeLevenshtein(matchedSentences.slice(0, sentenceIndex + 1).join(" "), segment);
+                const distance = this.computeLevenshtein(matchedSentences.slice(0, sentenceIndex + 1), filteredSegments.slice(0, index + 1).map(segment => segment.rawText));
                 if (distance <= lowestDistance && distance < 20) {
                     lowestDistance = distance;
                     bestMatchSegments = filteredSegments.slice(0, index + 1);
