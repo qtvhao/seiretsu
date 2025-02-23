@@ -52,8 +52,9 @@ export class AudioSegmentProcessor {
 
         console.log("✅ Alignment file saved.");
         
+        const matchThreshold = parseFloat(process.env.MATCH_THRESHOLD || '0.1');
         const matcher = new BestSentenceMatcher(transcriptSegments, expectedTextSegments);
-        const [matchedSegments, lastSegmentEnd, remainingText]: [TextSegment[], number | null, string[], any[]] = matcher.findBestMatch(0.2);
+        const [matchedSegments, lastSegmentEnd, remainingText]: [TextSegment[], number | null, string[], any[]] = matcher.findBestMatch(matchThreshold);
         
         if (lastSegmentEnd === null) {
             if (remainingText.length > 0) {
@@ -93,7 +94,9 @@ export class AudioSegmentProcessor {
         
         if (!trimmedAudio) {
             console.log("❌ Processing failed: No trimmed audio generated.");
-            throw new Error("Processing failed: no trimmed audio generated.");
+            // throw new Error("Processing failed: no trimmed audio generated.");
+
+            return [];
         }
         
         let additionalSegments: TextSegment[] = [];

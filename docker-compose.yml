@@ -7,7 +7,10 @@ services:
     volumes:
       - ./.cache/:/root/.cache/
     environment:
-      - STABLE_TS_MODEL=small
+    # It takes 1m23.119s on  "tiny" model
+    # It takes 2m31.419s on  "base" model
+    # It takes 4m37.843s on "small" model
+      - STABLE_TS_MODEL=base
       - FLASK_APP=app.py
       - FLASK_ENV=production
     restart: unless-stopped
