@@ -1,4 +1,5 @@
 // src/server.js
+import alignRoutes from './routes/alignRoutes.js';
 import express, { Application, Request, Response } from 'express';
 
 export class Server {
@@ -12,6 +13,7 @@ export class Server {
     }
 
     private setupRoutes(): void {
+        this.app.use('/api', alignRoutes);
         this.app.get('/healthz', (req: Request, res: Response) => {
             res.status(200).json({ status: 'UP', timestamp: new Date().toISOString() });
         });
