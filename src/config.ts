@@ -26,10 +26,20 @@ interface ServerConfig {
     port: number;
 }
 
+interface MinioConfig {
+    endpoint: string;
+    port: number;
+    accessKey: string;
+    secretKey: string;
+    useSSL: boolean;
+    bucketName: string;
+}
+
 interface AppConfig {
     kafka: KafkaConfig;
     rabbitmq: RabbitMQConfig;
     server: ServerConfig;
+    minio: MinioConfig;
 }
 
 // Helper function to get environment variables
@@ -68,5 +78,13 @@ export const config: AppConfig = {
     },
     server: {
         port: getEnvNumber('SERVER_PORT', 3000),
+    },
+    minio: {
+        endpoint: getEnv('MINIO_ENDPOINT', 'localhost'),
+        port: getEnvNumber('MINIO_PORT', 9000),
+        accessKey: getEnv('MINIO_ACCESS_KEY', 'minioadmin'),
+        secretKey: getEnv('MINIO_SECRET_KEY', 'minioadmin'),
+        useSSL: getEnv('MINIO_USE_SSL', 'false') === 'true',
+        bucketName: getEnv('MINIO_BUCKET_NAME', 'my-bucket'),
     },
 };
