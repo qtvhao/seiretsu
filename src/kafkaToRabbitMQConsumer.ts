@@ -1,22 +1,23 @@
-import { Kafka, Consumer } from 'kafkajs';
-import { Channel } from 'amqplib';
-import { getKafkaConnection } from './kafka/kafkaClient';
+import { startKafkaConsumer } from './kafka/kafkaConsumer';
 import { connectAmqp } from './amqp/amqpClient';
 import { config } from './config';
-
-// Get shared Kafka connection
-const kafka: Kafka = getKafkaConnection();
-const consumer: Consumer = kafka.consumer({ groupId: config.kafka.groupId });
+import { Channel } from 'amqplib';
 
 let amqpChannel: Channel | null = null;
+let isShuttingDown = false;
 
 /**
  * Initializes and caches the AMQP channel for reuse.
  */
 const getAmqpChannel = async (): Promise<Channel> => {
     if (!amqpChannel) {
-        amqpChannel = await connectAmqp();
-        console.log('✅ AMQP Channel initialized.');
+        try {
+            amqpChannel = await connectAmqp();
+            console.log('✅ AMQP Channel initialized.');
+        } catch (error) {
+            console.error('❌ Failed to connect to RabbitMQ:', error);
+            throw error;
+        }
     }
     return amqpChannel;
 };
@@ -24,15 +25,7 @@ const getAmqpChannel = async (): Promise<Channel> => {
 /**
  * Handles each Kafka message by forwarding it to RabbitMQ.
  */
-const eachMessageHandler = async ({
-    topic,
-    partition,
-    message,
-}: {
-    topic: string;
-    partition: number;
-    message: any;
-}): Promise<void> => {
+const eachMessageHandler = async ({ topic, partition, message }: { topic: string; partition: number; message: any }): Promise<void> => {
     try {
         const messageValue = message.value?.toString();
         if (!messageValue) {
@@ -61,51 +54,32 @@ const eachMessageHandler = async ({
 };
 
 /**
- * Starts the Kafka consumer and listens for messages.
+ * Gracefully shuts down the RabbitMQ connection.
  */
-const startKafkaConsumer = async (): Promise<void> => {
+const shutdownRabbitMQ = async (): Promise<void> => {
+    if (isShuttingDown) return;
+    isShuttingDown = true;
+
+    console.log('🔻 Shutting down RabbitMQ channel...');
     try {
-        await consumer.connect();
-        console.log('✅ Kafka Consumer connected');
-
-        await consumer.subscribe({ topic: config.kafka.topics.request, fromBeginning: false });
-        console.log(`🎧 Listening for messages on topic: ${config.kafka.topics.request}`);
-
-        await consumer.run({ eachMessage: eachMessageHandler });
-    } catch (error) {
-        console.error('❌ Error starting Kafka consumer:', error);
-    }
-};
-
-/**
- * Graceful shutdown for Kafka consumer and RabbitMQ.
- */
-const shutdownKafkaConsumer = async (): Promise<void> => {
-    console.log('🔻 Shutting down Kafka Consumer...');
-    try {
-        await consumer.disconnect();
-        console.log('✅ Kafka Consumer disconnected.');
-    } catch (error) {
-        console.error('❌ Error disconnecting Kafka Consumer:', error);
-    }
-
-    if (amqpChannel) {
-        try {
+        if (amqpChannel) {
             await amqpChannel.close();
             amqpChannel = null;
             console.log('✅ RabbitMQ channel closed.');
-        } catch (error) {
-            console.error('❌ Error closing RabbitMQ channel:', error);
         }
+    } catch (error) {
+        console.error('❌ Error closing RabbitMQ channel:', error);
     }
-
-    console.log('🚀 Shutdown complete. Exiting process.');
     process.exit(0);
 };
 
-// Handle process termination signals (SIGINT for Ctrl+C, SIGTERM for container shutdown)
-process.on('SIGTERM', shutdownKafkaConsumer);
-process.on('SIGINT', shutdownKafkaConsumer);
+// Handle process termination signals
+process.on('SIGTERM', shutdownRabbitMQ);
+process.on('SIGINT', shutdownRabbitMQ);
 
-// Start the Kafka consumer
-startKafkaConsumer();
+// Start the Kafka consumer with the RabbitMQ handler
+startKafkaConsumer({
+    topic: config.kafka.topics.request,
+    groupId: config.kafka.groupId,
+    eachMessageHandler,
+});
