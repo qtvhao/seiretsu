@@ -6,7 +6,7 @@ import { sendMessageToQueue } from './utils/kafkaHelper.js';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { AudioSegmentProcessor } from "../src/audioSegmentProcessor.js";
+import { AudioSegmentProcessor } from "./audioSegmentProcessor.js";
 
 const storage: Storage = new Storage();
 const processor = new AudioSegmentProcessor();
