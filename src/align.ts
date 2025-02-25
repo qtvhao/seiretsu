@@ -103,7 +103,7 @@ const prepareFormData = (audioFilePath: string, transcription: string): FormData
 
 const uploadAudioFile = async (formData: FormData): Promise<TranscriptSegment[]> => {
     try {
-        const response = await axios.post<AlignmentResponse>('http://localhost:5000/align', formData, {
+        const response = await axios.post<AlignmentResponse>('http://localhost:8000/align', formData, {
             headers: {
                 ...formData.getHeaders(),
                 'Content-Type': 'multipart/form-data',
