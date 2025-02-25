@@ -52,7 +52,7 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
 
     await sendMessageToQueue(config.kafka.topics.response, responseData);
 
-    console.log(`📤 Sent response to Kafka with correlationId: ${responseData.correlationId}`);
+    console.log(`📤 Sent response to Kafka with correlationId: ${responseData.correlationId}`, responseData);
 };
 
 /**
