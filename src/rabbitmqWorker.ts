@@ -78,12 +78,12 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
                 word: word.word,
                 start: word.start,
                 end: word.end,
-                confidence: word.probability,
+                confidence: parseInt(word.probability.toFixed(4)),
             })),
             text: segment.rawText,
             startTime: segment.startTime,
             endTime: segment.endTime,
-            confidence: segment.avgProbability
+            confidence: parseInt(segment.avgProbability.toFixed(4))
         }));
 
         const responseData: ResponseData = {
