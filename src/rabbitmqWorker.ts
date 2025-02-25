@@ -74,6 +74,12 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
 
         // Map segments to expected format
         const mappedSegments = segments.map(segment => ({
+            words: segment.words.map(word=>({
+                word: word.word,
+                start: word.start,
+                end: word.end,
+                confidence: word.probability,
+            })),
             text: segment.rawText,
             startTime: segment.startTime,
             endTime: segment.endTime,
