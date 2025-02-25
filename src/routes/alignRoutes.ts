@@ -43,13 +43,14 @@ const alignHandler = async (req: Request, res: Response): Promise<void> => {
         }
 
         const referenceTexts = JSON.parse(req.body.referenceTexts);
+        const language = req.body.language;
         const fileClaimCheck: string = await storage.uploadAudioFile(req.file!);
         
         const correlationId: string = crypto.randomUUID();
         log("Generated correlationId", { correlationId, requestId: req.headers["x-request-id"] });
         
         const responsePromise = requestResponseService.addRequest(correlationId);
-        await sendMessageToQueue(config.kafka.topics.request, { referenceTexts, fileClaimCheck, correlationId });
+        await sendMessageToQueue(config.kafka.topics.request, { referenceTexts, fileClaimCheck, correlationId, language });
         
         log("Sent message to queue", { correlationId, requestId: req.headers["x-request-id"] });
         
