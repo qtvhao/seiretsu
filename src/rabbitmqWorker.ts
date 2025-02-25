@@ -6,8 +6,10 @@ import { sendMessageToQueue } from './utils/kafkaHelper.js';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
+import { AudioSegmentProcessor } from "../src/audioSegmentProcessor.js";
 
 const storage: Storage = new Storage();
+const processor = new AudioSegmentProcessor();
 
 /**
  * Defines the expected structure of request messages
@@ -24,6 +26,7 @@ interface RequestData {
 interface ResponseData extends Record<string, unknown> {
     status: string;
     timestamp: string;
+    segments?: { text: string; startTime: number; endTime: number; confidence: number }[];
 }
 
 /**
@@ -66,13 +69,22 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
             - Size: ${fileStats.size} bytes
             - Location: ${tempFilePath}`);
 
-        // Simulate processing delay
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        // Process the audio file using AudioSegmentProcessor
+        const segments = await processor.recursiveGetSegmentsFromAudioFile(tempFilePath, requestData.referenceTexts);
+
+        // Map segments to expected format
+        const mappedSegments = segments.map(segment => ({
+            text: segment.rawText,
+            startTime: segment.startTime,
+            endTime: segment.endTime,
+            confidence: segment.avgProbability
+        }));
 
         const responseData: ResponseData = {
             ...requestData,
             status: 'Processed',
             timestamp: new Date().toISOString(),
+            segments: mappedSegments,
         };
 
         await sendMessageToQueue(config.kafka.topics.response, responseData);
