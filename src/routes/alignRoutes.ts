@@ -1,12 +1,14 @@
 import { Router, Request, Response } from 'express';
 import multer from 'multer';
-import { config } from '../config.js'
-import { Storage } from '../utils/storage.js';
-import { sendMessageToQueue } from '../utils/kafkaHelper.js';
+import { config } from '../config';
+import { Storage } from '../utils/storage';
+import { sendMessageToQueue } from '../utils/kafkaHelper';
+import { App } from '../app';
 
-const router = Router();
+const router: Router = Router();
 const upload = multer({ dest: 'uploads/' });
-const storage = new Storage();
+const storage: Storage = new Storage();
+const requestResponseService = App.getInstance().requestResponseService;
 
 const validateRequest = (req: Request, res: Response): boolean => {
     if (!req.file) {
@@ -23,24 +25,51 @@ const validateRequest = (req: Request, res: Response): boolean => {
     return true;
 };
 
-const alignHandler = async (req: Request, res: Response) => {
+const alignHandler = async (req: Request, res: Response): Promise<void> => {
     try {
         if (!validateRequest(req, res)) {
             return;
         }
 
         const { referenceTexts } = req.body;
-        const fileClaimCheck = await storage.uploadAudioFile(req.file!);
-
-        await sendMessageToQueue(config.kafka.topics.request, { referenceTexts, fileClaimCheck });
-
-        res.status(200).json({ message: 'Message sent to queue successfully', fileClaimCheck });
+        const fileClaimCheck: string = await storage.uploadAudioFile(req.file!);
+        
+        const correlationId: string = crypto.randomUUID();
+        const responsePromise = requestResponseService.addRequest(correlationId);
+        await sendMessageToQueue(config.kafka.topics.request, { referenceTexts, fileClaimCheck, correlationId });
+        
+        responsePromise
+            .then(response => {
+                res.status(200).json(response);
+            })
+            .catch(error => {
+                console.error('Error processing response:', error);
+                res.status(202).json({ message: 'Request accepted, but response not ready yet', correlationId });
+            });
     } catch (error) {
         console.error('Error processing request:', error);
         res.status(500).json({ error: 'Failed to process request' });
     }
 };
 
+const getResponseHandler = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { correlationId } = req.params;
+        const response = requestResponseService.getResponse(correlationId);
+        
+        if (!response) {
+            res.status(404).json({ error: 'Response not found', correlationId });
+            return;
+        }
+
+        res.status(200).json(response);
+    } catch (error) {
+        console.error('Error fetching response:', error);
+        res.status(500).json({ error: 'Failed to retrieve response' });
+    }
+};
+
 router.post('/align', upload.single('audioFile'), alignHandler);
+router.get('/align/:correlationId', getResponseHandler);
 
 export default router;

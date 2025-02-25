@@ -4,15 +4,27 @@ import { Server } from './server.js';
 import { RequestResponseService } from './requestResponseService.js';
 import { config } from './config.js';
 
-class App {
+export class App {
+    private static instance: App;
     private server: Server;
-    private requestResponseService: RequestResponseService;
     private kafkaResponseConsumer: KafkaResponseConsumer;
+    public requestResponseService: RequestResponseService;
 
-    constructor() {
+    private constructor() {
         this.server = new Server();
         this.requestResponseService = new RequestResponseService();
         this.kafkaResponseConsumer = this.initializeKafkaConsumer();
+    }
+
+    /**
+     * Gets the singleton instance of the App.
+     * @returns App instance
+     */
+    public static getInstance(): App {
+        if (!App.instance) {
+            App.instance = new App();
+        }
+        return App.instance;
     }
 
     /**
@@ -20,13 +32,11 @@ class App {
      * @returns KafkaResponseConsumer instance
      */
     private initializeKafkaConsumer(): KafkaResponseConsumer {
-        const kafkaConsumer = new KafkaResponseConsumer(
+        return new KafkaResponseConsumer(
             config.kafka.topics.response,
             config.kafka.groupId,
             this.requestResponseService
         );
-
-        return kafkaConsumer;
     }
 
     /**
@@ -38,7 +48,3 @@ class App {
         console.log(`🚀 Server is running on port ${config.server.port}`);
     }
 }
-
-// Instantiate and start the application
-const app = new App();
-app.start();
