@@ -7,7 +7,24 @@ export class Storage {
     private bucketName: string;
 
     constructor() {
-        this.bucketName = config.minio.bucketName
+        this.bucketName = config.minio.bucketName;
+        this.ensureBucketExists();
+    }
+
+    /**
+     * Ensures the bucket exists, creates it if not.
+     */
+    private async ensureBucketExists(): Promise<void> {
+        try {
+            const exists = await this.client.bucketExists(this.bucketName);
+            if (!exists) {
+                await this.client.makeBucket(this.bucketName, 'us-east-1');
+                console.log(`📁 Bucket '${this.bucketName}' created successfully`);
+            }
+        } catch (error) {
+            console.error(`❌ Error ensuring bucket '${this.bucketName}' exists:`, error);
+            throw error;
+        }
     }
 
     uploadAudioFile = async (file: Express.Multer.File): Promise<string> => {
