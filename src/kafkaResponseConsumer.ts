@@ -3,7 +3,7 @@ import { RequestResponseService } from './requestResponseService.js';
 import { EachMessagePayload } from 'kafkajs';
 
 export class KafkaResponseConsumer {
-    private requestResponseService: any;
+    private requestResponseService: RequestResponseService;
 
     private topic: string;
     private groupId: string;
@@ -31,7 +31,7 @@ export class KafkaResponseConsumer {
             const responseData = JSON.parse(messageValue);
             this.processResponse(responseData);
             if (responseData.correlationId) {
-                this.requestResponseService.handleResponse(responseData.correlationId, responseData);
+                this.requestResponseService.storeResponse(responseData.correlationId, responseData);
             }
         } catch (error) {
             console.error('❌ Error processing Kafka response message:', error);
