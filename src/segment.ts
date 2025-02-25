@@ -1,6 +1,6 @@
 import levenshtein from 'fast-levenshtein';
-import { WordData } from './align';
-import { stripMarkdownFormatting } from './utils'
+import { WordData } from './align.js';
+import { stripMarkdownFormatting } from './utils.js'
 
 const MAX_SNIPPET_WORDS = 12;
 

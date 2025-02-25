@@ -1,8 +1,8 @@
 import * as fs from 'fs';
-import { TextSegment } from './segment';
-import { align, TranscriptSegment, WordData } from "./align";
-import { cutAudioFile } from './utils';
-import { BestSentenceMatcher } from './bestSentenceMatcher';
+import { TextSegment } from './segment.js';
+import { align, TranscriptSegment, WordData } from "./align.js";
+import { cutAudioFile } from './utils.js';
+import { BestSentenceMatcher } from './bestSentenceMatcher.js';
 
 /**
  * AudioSegmentProcessor handles speech-to-text alignment and segmentation.

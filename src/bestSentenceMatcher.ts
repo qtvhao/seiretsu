@@ -1,6 +1,6 @@
-import { ValidSegmentsExtractor } from "./validSegmentsExtractor";
-import { TextSegment } from "./segment";
-import { TranscriptSegment } from "./align";
+import { ValidSegmentsExtractor } from "./validSegmentsExtractor.js";
+import { TextSegment } from "./segment.js";
+import { TranscriptSegment } from "./align.js";
 import levenshtein from 'fast-levenshtein';
 
 export class BestSentenceMatcher {
