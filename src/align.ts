@@ -42,8 +42,8 @@ const ensureCacheDirExists = () => {
 };
 
 // Generate a unique cache filename based on content hash
-const generateCacheKey = (audioFilePath: string, transcription: string): string => {
-    return crypto.createHash('md5').update(audioFilePath + transcription).digest('hex');
+const generateCacheKey = (audioFilePath: string, transcription: string, language: string): string => {
+    return crypto.createHash('md5').update(audioFilePath + transcription + language).digest('hex');
 };
 
 // Retrieve cached result from cache directory
@@ -84,7 +84,7 @@ const areFilesAvailable = (audioFilePath: string): boolean => {
     return true;
 };
 
-const prepareFormData = (audioFilePath: string, transcription: string): FormData => {
+const prepareFormData = (audioFilePath: string, transcription: string, language: string): FormData => {
     if (!fs.existsSync(audioFilePath)) {
         throw new Error(`File not found: ${audioFilePath}`);
     }
@@ -97,6 +97,7 @@ const prepareFormData = (audioFilePath: string, transcription: string): FormData
     const formData = new FormData();
     formData.append('audio_file', audioStream);
     formData.append('text', textStream, { filename: 'transcription.txt', contentType: 'text/plain' });
+    formData.append('language', language);
 
     return formData;
 };
@@ -155,7 +156,7 @@ const trimAudioFile = async (inputPath: string, outputPath: string, start: numbe
     }
 };
 
-export const align = async (audioFilePath: string, transcription: string): Promise<{ segments: TranscriptSegment[] }> => {
+export const align = async (audioFilePath: string, transcription: string, language: string): Promise<{ segments: TranscriptSegment[] }> => {
     if (!areFilesAvailable(audioFilePath)) {
         throw new Error("Audio file not found");
     }
@@ -169,7 +170,7 @@ export const align = async (audioFilePath: string, transcription: string): Promi
         processedAudioFilePath = await trimAudioFile(audioFilePath, tmpFilePath, 0, 20);
     }
 
-    const cacheKey = generateCacheKey(processedAudioFilePath, transcription);
+    const cacheKey = generateCacheKey(processedAudioFilePath, transcription, language);
     const cachedResult = getCachedResult(cacheKey);
 
     if (cachedResult) {
@@ -177,7 +178,7 @@ export const align = async (audioFilePath: string, transcription: string): Promi
         return cachedResult;
     }
 
-    const formData = prepareFormData(processedAudioFilePath, transcription);
+    const formData = prepareFormData(processedAudioFilePath, transcription, language);
 
     try {
         const segments = await uploadAudioFile(formData);

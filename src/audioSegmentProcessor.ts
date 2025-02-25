@@ -25,11 +25,12 @@ export class AudioSegmentProcessor {
      * @returns A tuple containing the trimmed audio file path, remaining unmatched text, start timestamp, and extracted text segments.
      */
     private async processAudioFile(
-        audioFile: string, 
-        expectedTextSegments: string[], 
+        audioFile: string,
+        expectedTextSegments: string[],
+        language: string,
     ): Promise<[string | null, string[], number | null, TextSegment[]]> {
         console.log("🎤 Processing audio file:", audioFile);
-        const alignmentResult = await align(audioFile, expectedTextSegments.join('\n\n'));
+        const alignmentResult = await align(audioFile, expectedTextSegments.join('\n\n'), language);
         return await this.processAlignedSegments(audioFile, expectedTextSegments, alignmentResult);
     }
 
@@ -83,14 +84,14 @@ export class AudioSegmentProcessor {
      * @param expectedTextSegments Expected text segments.
      * @returns Extracted text segments.
      */
-    public async recursiveGetSegmentsFromAudioFile(audioFile: string, expectedTextSegments: string[], stack = 0): Promise<TextSegment[]> {
+    public async recursiveGetSegmentsFromAudioFile(audioFile: string, expectedTextSegments: string[], language: string, stack = 0): Promise<TextSegment[]> {
         if (!expectedTextSegments.length) {
             console.log("ℹ️ No expected text segments provided.");
             return [];
         }
         
         console.log("🔄 Processing segments recursively...");
-        const [trimmedAudio, remainingText, , segments] = await this.processAudioFile(audioFile, expectedTextSegments);
+        const [trimmedAudio, remainingText, , segments] = await this.processAudioFile(audioFile, expectedTextSegments, language);
         
         if (!trimmedAudio) {
             console.log("❌ Processing failed: No trimmed audio generated.");
@@ -105,7 +106,7 @@ export class AudioSegmentProcessor {
                 trimmedAudio,
                 remainingText,
             });
-            additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText, stack + 1);
+            additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText, language, stack + 1);
         }
         
         console.log("✅ Processing complete.");

@@ -18,6 +18,7 @@ interface RequestData {
     correlationId: string;
     referenceTexts: string[];
     fileClaimCheck: string;
+    language: string;
 }
 
 /**
@@ -39,6 +40,21 @@ const validateMessage = (requestData: RequestData | null): boolean => {
 
     if (!requestData.correlationId) {
         console.warn('⚠️ Message missing correlationId, ignoring.');
+        return false;
+    }
+
+    if (!requestData.fileClaimCheck) {
+        console.warn('⚠️ Message missing fileClaimCheck, ignoring.');
+        return false;
+    }
+
+    if (!requestData.referenceTexts || !Array.isArray(requestData.referenceTexts) || requestData.referenceTexts.length === 0) {
+        console.warn('⚠️ Message missing or invalid referenceTexts, ignoring.');
+        return false;
+    }
+
+    if (!requestData.language) {
+        console.warn('⚠️ Message missing language, ignoring.');
         return false;
     }
 
@@ -70,7 +86,7 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
             - Location: ${tempFilePath}`);
 
         // Process the audio file using AudioSegmentProcessor
-        const segments = await processor.recursiveGetSegmentsFromAudioFile(tempFilePath, requestData.referenceTexts);
+        const segments = await processor.recursiveGetSegmentsFromAudioFile(tempFilePath, requestData.referenceTexts, requestData.language);
 
         // Map segments to expected format
         const mappedSegments = segments.map(segment => ({
