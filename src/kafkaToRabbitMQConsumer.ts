@@ -1,85 +1,108 @@
-import { startKafkaConsumer } from './kafka/kafkaConsumer';
-import { connectAmqp } from './amqp/amqpClient';
-import { config } from './config';
+import { EachMessagePayload } from 'kafkajs';
 import { Channel } from 'amqplib';
+import { connectAmqp } from './amqp/amqpClient.js';
+import { config } from './config.js';
+import { startKafkaConsumer } from './kafka/kafkaConsumer.js';
 
-let amqpChannel: Channel | null = null;
-let isShuttingDown = false;
+export class KafkaToRabbitMQConsumer {
+    private rabbitMQChannel: Channel | null = null;
+    private isShuttingDown: boolean = false;
 
-/**
- * Initializes and caches the AMQP channel for reuse.
- */
-const getAmqpChannel = async (): Promise<Channel> => {
-    if (!amqpChannel) {
+    /**
+     * Initializes Kafka and RabbitMQ consumers
+     */
+    public async start(): Promise<void> {
         try {
-            amqpChannel = await connectAmqp();
-            console.log('✅ AMQP Channel initialized.');
+            this.rabbitMQChannel = await connectAmqp();
+            this.setupTerminationHandlers();
+            await startKafkaConsumer({
+                topic: config.kafka.topics.request,
+                groupId: config.kafka.groupId,
+                eachMessageHandler: async (payload) => await this.processMessage(payload),
+            });
         } catch (error) {
-            console.error('❌ Failed to connect to RabbitMQ:', error);
-            throw error;
+            console.error('❌ Error starting Kafka consumer:', error);
+            process.exit(1);
         }
     }
-    return amqpChannel;
-};
 
-/**
- * Handles each Kafka message by forwarding it to RabbitMQ.
- */
-const eachMessageHandler = async ({ topic, partition, message }: { topic: string; partition: number; message: any }): Promise<void> => {
-    try {
-        const messageValue = message.value?.toString();
-        if (!messageValue) {
-            console.error('❌ Received empty message');
-            return;
+    /**
+     * Processes each Kafka message and forwards it to RabbitMQ
+     * @param payload Kafka message payload
+     */
+    private async processMessage({ topic, partition, message }: EachMessagePayload): Promise<void> {
+        try {
+            const messageValue = message.value?.toString();
+            if (!messageValue) {
+                console.error('❌ Received empty Kafka message');
+                return;
+            }
+
+            console.log(`📩 Received Kafka message: ${messageValue}`);
+
+            let requestData;
+            try {
+                requestData = JSON.parse(messageValue);
+            } catch (error) {
+                console.error('❌ Invalid JSON received:', messageValue);
+                return;
+            }
+
+            await this.forwardToRabbitMQ(requestData);
+        } catch (error) {
+            console.error('❌ Error processing Kafka message:', error);
+        }
+    }
+
+    /**
+     * Forwards message to RabbitMQ queue
+     * @param data Data to be sent
+     */
+    private async forwardToRabbitMQ(data: any): Promise<void> {
+        try {
+            if (!this.rabbitMQChannel) {
+                console.error('❌ RabbitMQ channel not initialized. Dropping message.');
+                return;
+            }
+
+            const queueName = config.rabbitmq.taskQueue;
+            await this.rabbitMQChannel.assertQueue(queueName, { durable: true });
+
+            this.rabbitMQChannel.sendToQueue(queueName, Buffer.from(JSON.stringify(data)), { persistent: true });
+
+            console.log(`📤 Message forwarded to RabbitMQ queue: ${queueName}`);
+        } catch (error) {
+            console.error('❌ Failed to send message to RabbitMQ:', error);
+        }
+    }
+
+    /**
+     * Gracefully shuts down RabbitMQ consumers
+     */
+    public async shutdown(): Promise<void> {
+        if (this.isShuttingDown) return;
+        this.isShuttingDown = true;
+
+        console.log('🔻 Shutting down KafkaToRabbitMQConsumer...');
+
+        try {
+            if (this.rabbitMQChannel) {
+                await this.rabbitMQChannel.close();
+                this.rabbitMQChannel = null;
+                console.log('✅ RabbitMQ connection closed.');
+            }
+        } catch (error) {
+            console.error('❌ Error closing RabbitMQ connection:', error);
         }
 
-        console.log(`📩 Received Kafka message: ${messageValue}`);
-
-        // Parse the Kafka message
-        const requestData = JSON.parse(messageValue);
-
-        // Get persistent RabbitMQ channel
-        const channel = await getAmqpChannel();
-        const queueName = config.rabbitmq.taskQueue;
-
-        await channel.assertQueue(queueName, { durable: true });
-        channel.sendToQueue(queueName, Buffer.from(JSON.stringify(requestData)), {
-            persistent: true,
-        });
-
-        console.log(`📤 Message forwarded to RabbitMQ queue: ${queueName}`);
-    } catch (error) {
-        console.error('❌ Error processing Kafka message:', error);
+        setTimeout(() => process.exit(0), 500);
     }
-};
 
-/**
- * Gracefully shuts down the RabbitMQ connection.
- */
-const shutdownRabbitMQ = async (): Promise<void> => {
-    if (isShuttingDown) return;
-    isShuttingDown = true;
-
-    console.log('🔻 Shutting down RabbitMQ channel...');
-    try {
-        if (amqpChannel) {
-            await amqpChannel.close();
-            amqpChannel = null;
-            console.log('✅ RabbitMQ channel closed.');
-        }
-    } catch (error) {
-        console.error('❌ Error closing RabbitMQ channel:', error);
+    /**
+     * Sets up termination handlers for graceful shutdown
+     */
+    private setupTerminationHandlers(): void {
+        process.on('SIGTERM', () => this.shutdown());
+        process.on('SIGINT', () => this.shutdown());
     }
-    process.exit(0);
-};
-
-// Handle process termination signals
-process.on('SIGTERM', shutdownRabbitMQ);
-process.on('SIGINT', shutdownRabbitMQ);
-
-// Start the Kafka consumer with the RabbitMQ handler
-startKafkaConsumer({
-    topic: config.kafka.topics.request,
-    groupId: config.kafka.groupId,
-    eachMessageHandler,
-});
+}

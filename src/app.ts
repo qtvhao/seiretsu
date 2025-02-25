@@ -2,18 +2,21 @@
 import { KafkaResponseConsumer } from './kafkaResponseConsumer.js';
 import { Server } from './server.js';
 import { RequestResponseService } from './requestResponseService.js';
+import { KafkaToRabbitMQConsumer } from './kafkaToRabbitMQConsumer.js'; // Import KafkaToRabbitMQConsumer
 import { config } from './config.js';
 
 class App {
     private static instance: App;
     private server: Server;
     private kafkaResponseConsumer: KafkaResponseConsumer;
+    private kafkaToRabbitMQConsumer: KafkaToRabbitMQConsumer; // Add KafkaToRabbitMQConsumer
     public requestResponseService: RequestResponseService;
 
     private constructor() {
         this.server = new Server();
         this.requestResponseService = new RequestResponseService();
         this.kafkaResponseConsumer = this.initializeKafkaConsumer();
+        this.kafkaToRabbitMQConsumer = new KafkaToRabbitMQConsumer(); // Initialize KafkaToRabbitMQConsumer
     }
 
     /**
@@ -45,7 +48,10 @@ class App {
     public start(): void {
         this.server.start();
         this.kafkaResponseConsumer.start();
+        this.kafkaToRabbitMQConsumer.start();
+        
         console.log(`🚀 Server is running on port ${config.server.port}`);
     }
 }
-export {App}
+
+export { App };
