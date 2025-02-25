@@ -1,6 +1,6 @@
 // src/minio/minioClient.ts
 import { Client } from 'minio';
-import { config } from '../config';
+import { config } from '../config.js';
 
 export const minioClient = new Client({
     endPoint: config.minio.endpoint,

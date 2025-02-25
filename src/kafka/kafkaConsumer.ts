@@ -1,5 +1,5 @@
 import { Kafka, Consumer, EachMessagePayload } from 'kafkajs';
-import { getKafkaConnection } from './kafkaClient';
+import { getKafkaConnection } from './kafkaClient.js';
 
 interface KafkaConsumerOptions {
     topic: string;

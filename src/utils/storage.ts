@@ -1,6 +1,6 @@
 // src/utils/storage.ts
-import { minioClient } from '../minio/minioClient';
-import { config } from '../config'
+import { minioClient } from '../minio/minioClient.js';
+import { config } from '../config.js'
 
 export class Storage {
     private client = minioClient;

@@ -1,14 +1,13 @@
 import { Router, Request, Response } from 'express';
 import multer from 'multer';
-import { config } from '../config';
-import { Storage } from '../utils/storage';
-import { sendMessageToQueue } from '../utils/kafkaHelper';
-import { App } from '../app';
+import { config } from '../config.js';
+import { Storage } from '../utils/storage.js';
+import { sendMessageToQueue } from '../utils/kafkaHelper.js';
+import { App } from '../app.js';
 
 const router: Router = Router();
 const upload = multer({ dest: 'uploads/' });
 const storage: Storage = new Storage();
-const requestResponseService = App.getInstance().requestResponseService;
 
 const validateRequest = (req: Request, res: Response): boolean => {
     if (!req.file) {
@@ -26,6 +25,7 @@ const validateRequest = (req: Request, res: Response): boolean => {
 };
 
 const alignHandler = async (req: Request, res: Response): Promise<void> => {
+    const requestResponseService = App.getInstance().requestResponseService;
     try {
         if (!validateRequest(req, res)) {
             return;
@@ -53,6 +53,7 @@ const alignHandler = async (req: Request, res: Response): Promise<void> => {
 };
 
 const getResponseHandler = async (req: Request, res: Response): Promise<void> => {
+    const requestResponseService = App.getInstance().requestResponseService;
     try {
         const { correlationId } = req.params;
         const response = requestResponseService.getResponse(correlationId);

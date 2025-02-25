@@ -4,7 +4,7 @@ import { Server } from './server.js';
 import { RequestResponseService } from './requestResponseService.js';
 import { config } from './config.js';
 
-export class App {
+class App {
     private static instance: App;
     private server: Server;
     private kafkaResponseConsumer: KafkaResponseConsumer;
@@ -48,3 +48,4 @@ export class App {
         console.log(`🚀 Server is running on port ${config.server.port}`);
     }
 }
+export {App}
