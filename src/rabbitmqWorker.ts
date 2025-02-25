@@ -14,7 +14,9 @@ interface RequestData {
 /**
  * Defines the structure of response messages
  */
-interface ResponseData extends RequestData {
+interface ResponseData extends Record<string, unknown> {
+    correlationId: string;
+    payload: any;
     status: string;
     timestamp: string;
 }
@@ -48,7 +50,7 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
         timestamp: new Date().toISOString(),
     };
 
-    await sendMessageToQueue(config.kafka.topics.response, {})
+    await sendMessageToQueue(config.kafka.topics.response, responseData);
 
     console.log(`📤 Sent response to Kafka with correlationId: ${responseData.correlationId}`);
 };
