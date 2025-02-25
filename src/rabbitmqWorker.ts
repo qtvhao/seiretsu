@@ -57,11 +57,11 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
 
     try {
         console.log(`⬇️ Downloading file '${requestData.fileClaimCheck}' to '${tempFilePath}'...`);
-        
+
         await storage.downloadFile(requestData.fileClaimCheck, tempFilePath);
 
         console.log(`✅ File downloaded successfully.`);
-        
+
         // Print file details
         const fileStats = fs.statSync(tempFilePath);
         console.log(`📄 File Details:
@@ -74,7 +74,7 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
 
         // Map segments to expected format
         const mappedSegments = segments.map(segment => ({
-            words: segment.words.map(word=>({
+            words: segment.words.map(word => ({
                 word: word.word,
                 start: word.start,
                 end: word.end,
