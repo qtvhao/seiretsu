@@ -93,11 +93,14 @@ const prepareFormData = (audioFilePath: string, transcription: string, language:
     const textBuffer = Buffer.from(transcription, 'utf-8');
     const textStream = new stream.PassThrough();
     textStream.end(textBuffer);
+    const languageBuffer = Buffer.from(language, 'utf-8');
+    const languageStream = new stream.PassThrough();
+    languageStream.end(languageBuffer);
 
     const formData = new FormData();
     formData.append('audio_file', audioStream);
     formData.append('text', textStream, { filename: 'transcription.txt', contentType: 'text/plain' });
-    formData.append('language', language);
+    formData.append('language', languageStream);
 
     return formData;
 };
