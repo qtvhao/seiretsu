@@ -17,7 +17,7 @@ export class KafkaToRabbitMQConsumer {
             this.setupTerminationHandlers();
             await startKafkaConsumer({
                 topic: config.kafka.topics.request,
-                groupId: config.kafka.groupId,
+                groupId: config.kafka.groupId + KafkaToRabbitMQConsumer.name,
                 eachMessageHandler: async (payload) => await this.processMessage(payload),
             });
         } catch (error) {
