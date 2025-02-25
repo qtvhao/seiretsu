@@ -1,22 +1,27 @@
 import { rabbitMqMessageHandler, } from './amqp/amqpConsumer.js';
 import { config } from './config.js';
+import { Storage } from './utils/storage.js';
 import { connectAmqp } from './amqp/amqpClient.js';
 import { sendMessageToQueue } from './utils/kafkaHelper.js';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
+
+const storage: Storage = new Storage();
 
 /**
  * Defines the expected structure of request messages
  */
 interface RequestData {
     correlationId: string;
-    payload: any;
+    referenceTexts: string[];
+    fileClaimCheck: string;
 }
 
 /**
  * Defines the structure of response messages
  */
 interface ResponseData extends Record<string, unknown> {
-    correlationId: string;
-    payload: any;
     status: string;
     timestamp: string;
 }
@@ -42,17 +47,40 @@ const validateMessage = (requestData: RequestData | null): boolean => {
  * @param requestData - The parsed request data
  */
 const processAndRespondToKafka = async (requestData: RequestData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log(`📥 Processing request with correlationId: ${requestData.correlationId}`);
 
-    const responseData: ResponseData = {
-        ...requestData,
-        status: 'Processed',
-        timestamp: new Date().toISOString(),
-    };
+    const tempDir = os.tmpdir(); // Get the system's temp directory
+    const tempFilePath = path.join(tempDir, requestData.fileClaimCheck);
 
-    await sendMessageToQueue(config.kafka.topics.response, responseData);
+    try {
+        console.log(`⬇️ Downloading file '${requestData.fileClaimCheck}' to '${tempFilePath}'...`);
+        
+        await storage.downloadFile(requestData.fileClaimCheck, tempFilePath);
 
-    console.log(`📤 Sent response to Kafka with correlationId: ${responseData.correlationId}`, responseData);
+        console.log(`✅ File downloaded successfully.`);
+        
+        // Print file details
+        const fileStats = fs.statSync(tempFilePath);
+        console.log(`📄 File Details:
+            - Name: ${requestData.fileClaimCheck}
+            - Size: ${fileStats.size} bytes
+            - Location: ${tempFilePath}`);
+
+        // Simulate processing delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        const responseData: ResponseData = {
+            ...requestData,
+            status: 'Processed',
+            timestamp: new Date().toISOString(),
+        };
+
+        await sendMessageToQueue(config.kafka.topics.response, responseData);
+
+        console.log(`📤 Sent response to Kafka with correlationId: ${responseData.correlationId}`);
+    } catch (error) {
+        console.error(`❌ Error processing file '${requestData.fileClaimCheck}':`, error);
+    }
 };
 
 /**
