@@ -100,7 +100,7 @@ const prepareFormData = (audioFilePath: string, transcription: string, language:
     const formData = new FormData();
     formData.append('audio_file', audioStream);
     formData.append('text', textStream, { filename: 'transcription.txt', contentType: 'text/plain' });
-    formData.append('language', languageStream);
+    formData.append('language', languageStream, { filename: 'transcription.txt', contentType: 'text/plain' });
 
     return formData;
 };
