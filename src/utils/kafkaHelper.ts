@@ -33,7 +33,7 @@ export const sendMessageToQueue = async (topic: string, message: Record<string, 
         
         await producer.send({
             topic,
-            messages: [{ value: JSON.stringify(message) }],
+            messages: [{ value: JSON.stringify({...message}) }],
         });
         
         console.log('Message sent to queue successfully');
