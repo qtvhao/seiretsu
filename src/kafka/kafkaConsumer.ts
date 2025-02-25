@@ -1,4 +1,4 @@
-import { Kafka, Consumer, EachMessagePayload } from 'kafkajs';
+import { Kafka, Consumer, EachMessagePayload, Admin } from 'kafkajs';
 import { getKafkaConnection } from './kafkaClient.js';
 
 interface KafkaConsumerOptions {
@@ -8,6 +8,22 @@ interface KafkaConsumerOptions {
 }
 
 /**
+ * Ensures the topic exists before subscribing.
+ */
+const ensureTopicExists = async (kafka: Kafka, topic: string): Promise<void> => {
+    const admin: Admin = kafka.admin();
+    await admin.connect();
+    const topics = await admin.listTopics();
+    if (!topics.includes(topic)) {
+        await admin.createTopics({
+            topics: [{ topic }],
+        });
+        console.log(`📌 Topic created: ${topic}`);
+    }
+    await admin.disconnect();
+};
+
+/**
  * Starts a Kafka consumer with a given topic and message handler.
  */
 export const startKafkaConsumer = async ({ topic, groupId, eachMessageHandler }: KafkaConsumerOptions): Promise<void> => {
@@ -15,6 +31,7 @@ export const startKafkaConsumer = async ({ topic, groupId, eachMessageHandler }:
     const consumer: Consumer = kafka.consumer({ groupId });
 
     try {
+        await ensureTopicExists(kafka, topic);
         await consumer.connect();
         console.log(`✅ Kafka Consumer connected (Group: ${groupId})`);
 
