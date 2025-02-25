@@ -1,6 +1,7 @@
 // src/utils/storage.ts
 import { minioClient } from '../minio/minioClient.js';
 import { config } from '../config.js'
+import { randomBytes } from 'crypto';
 
 export class Storage {
     private client = minioClient;
@@ -28,9 +29,12 @@ export class Storage {
     }
 
     uploadAudioFile = async (file: Express.Multer.File): Promise<string> => {
-        await this.uploadFile(file.filename, file.path);
-        console.log(`File uploaded to MinIO: ${file.filename}`);
-        return file.filename;
+        const prefix = randomBytes(3).toString('hex'); // 6 random characters
+        const uniqueFileName = `${prefix}-${file.originalname}`;
+    
+        await this.uploadFile(uniqueFileName, file.path);
+        console.log(`File uploaded to MinIO: ${uniqueFileName}`);
+        return uniqueFileName;
     }
 
     /**
