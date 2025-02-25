@@ -1,6 +1,8 @@
 import { exec } from "child_process";
 import { promisify } from "util";
 import * as fs from "fs";
+import path from "path";
+import os from "os";
 
 const execPromise = promisify(exec);
 
@@ -31,6 +33,9 @@ export function splitMarkdown(text: string): string[] {
 
 
 export async function cutAudioFile(audioFile: string, start: number, end?: number): Promise<string> {
+    // Create a unique temporary file path
+    const tempDir = os.tmpdir();
+
     if (!fs.existsSync(audioFile)) {
         throw new Error("Audio file does not exist.");
     }
@@ -45,7 +50,7 @@ export async function cutAudioFile(audioFile: string, start: number, end?: numbe
     }
 
     const endOption = end !== undefined ? `-to ${end}` : "";
-    const outputFile = `cuts/trimmed_${duration}_${start}_${end ?? "end"}.mp3`;
+    const outputFile = path.join(tempDir, `trimmed_${Date.now()}_${duration}_${start}_${end ?? "end"}.mp3`);
     
     const command = `ffmpeg -i "${audioFile}" -ss ${start} ${endOption} -c copy "${outputFile}"`;
 
