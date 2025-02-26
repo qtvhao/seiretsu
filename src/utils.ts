@@ -40,6 +40,12 @@ export async function cutAudioFile(audioFile: string, start: number, end?: numbe
         throw new Error("Audio file does not exist.");
     }
 
+    // Determine the file extension
+    const fileExtension = path.extname(audioFile).toLowerCase();
+    if (!['.aac', '.wav', '.mp3'].includes(fileExtension)) {
+        throw new Error("Unsupported audio format. Only AAC, WAV, and MP3 are supported.");
+    }
+
     const durationCommand = `ffprobe -i "${audioFile}" -show_entries format=duration -v quiet -of csv="p=0"`;
     let duration: string;
     try {
@@ -50,9 +56,16 @@ export async function cutAudioFile(audioFile: string, start: number, end?: numbe
     }
 
     const endOption = end !== undefined ? `-to ${end}` : "";
-    const outputFile = path.join(tempDir, `trimmed_${Date.now()}_${duration}_${start}_${end ?? "end"}.mp3`);
+    const outputFile = path.join(tempDir, `trimmed_${Date.now()}_${duration}_${start}_${end ?? "end"}${fileExtension}`);
     
-    const command = `ffmpeg -i "${audioFile}" -ss ${start} ${endOption} -c copy "${outputFile}"`;
+    let codecOption = "-c copy";
+    if (fileExtension === ".aac") {
+        codecOption = "-c:a aac -b:a 128k"; // Ensure proper AAC encoding
+    } else if (fileExtension === ".wav") {
+        codecOption = "-c:a pcm_s16le"; // Ensure WAV encoding is correct
+    }
+    
+    const command = `ffmpeg -i "${audioFile}" -ss ${start} ${endOption} ${codecOption} -vn "${outputFile}"`;
 
     try {
         await execPromise(command);
