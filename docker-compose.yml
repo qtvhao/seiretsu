@@ -3,7 +3,7 @@ services:
     image: ghcr.io/qtvhao/stable-ts:latest
     container_name: stable_whisper_api
     ports:
-      - "5000:8000"
+      - "8000:8000"
     volumes:
       - ./.cache/:/root/.cache/
     environment:

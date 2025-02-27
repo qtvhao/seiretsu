@@ -78,6 +78,26 @@ export class AudioSegmentProcessor {
     }
 
     /**
+     * Adjusts the timestamps of a segment and its words by adding an offset.
+     *
+     * @param segment The segment whose times need adjustment.
+     * @param offset The time offset to add.
+     * @returns A new segment with adjusted times.
+     */
+    private adjustSegmentTimes(segment: TextSegment, offset: number): TextSegment {
+        return {
+            ...segment,
+            startTime: segment.startTime + offset,
+            endTime: segment.endTime + offset,
+            words: segment.words.map(word => ({
+                ...word,
+                start: word.start + offset,
+                end: word.end + offset,
+            })),
+        } as TextSegment;
+    }
+
+    /**
      * Recursively extracts and aligns text segments from an audio file.
      * 
      * @param audioFile Path to the audio file.
@@ -107,6 +127,12 @@ export class AudioSegmentProcessor {
                 remainingText,
             });
             additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText, language, stack + 1);
+
+            // Modify additionalSegments by adding the last segment's endTime
+            if (segments.length > 0) {
+                const lastEndTime = segments[segments.length - 1].endTime;
+                additionalSegments = additionalSegments.map(segment => this.adjustSegmentTimes(segment, lastEndTime));
+            }
         }
         
         console.log("✅ Processing complete.");
