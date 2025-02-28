@@ -54,16 +54,8 @@ const alignHandler = async (req: Request, res: Response): Promise<void> => {
         
         log("Sent message to queue", { correlationId, requestId: req.headers["x-request-id"] });
         
-        responsePromise
-            .then(response => {
-                log("Received response", { correlationId, requestId: req.headers["x-request-id"] });
-                res.status(200).json(response);
-            })
-            .catch(error => {
-                log("Response not ready", { correlationId, error: error.message, requestId: req.headers["x-request-id"] });
-                console.error('Error processing response:', error);
-                res.status(202).json({ message: 'Request accepted, but response not ready yet', correlationId });
-            });
+        log("Response not ready", { correlationId, requestId: req.headers["x-request-id"] });
+        res.status(202).json({ message: 'Request accepted, but response not ready yet', correlationId });
     } catch (error) {
         log("Error processing request", { error: (error as Error).message, requestId: req.headers["x-request-id"] });
         console.error('Error processing request:', error);
