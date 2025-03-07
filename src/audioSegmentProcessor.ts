@@ -91,8 +91,8 @@ export class AudioSegmentProcessor {
             endTime: segment.endTime + offset,
             words: segment.words.map(word => ({
                 ...word,
-                start: word.start + offset,
-                end: word.end + offset,
+                start: parseFloat((word.start + offset).toFixed(3)),
+                end: parseFloat((word.end + offset).toFixed(3)),
             })),
         } as TextSegment;
     }
