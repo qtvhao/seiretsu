@@ -43,8 +43,8 @@ export class AudioSegmentProcessor {
      * @returns A tuple containing the trimmed audio file path, remaining unmatched text, start timestamp, and extracted text segments.
      */
     public async processAlignedSegments(
-        audioFile: string, 
-        expectedTextSegments: string[], 
+        audioFile: string,
+        expectedTextSegments: string[],
         alignmentData: { segments: TranscriptSegment[] }
     ): Promise<[string | null, string[], number | null, TextSegment[]]> {
 
@@ -52,11 +52,11 @@ export class AudioSegmentProcessor {
         const transcriptSegments: TranscriptSegment[] = alignmentData['segments'] || [];
 
         console.log("✅ Alignment file saved.");
-        
+
         const matchThreshold = parseFloat(process.env.MATCH_THRESHOLD || '0.1');
         const matcher = new BestSentenceMatcher(transcriptSegments, expectedTextSegments);
         const [matchedSegments, lastSegmentEnd, remainingText]: [TextSegment[], number | null, string[], any[]] = matcher.findBestMatch(matchThreshold);
-        
+
         if (lastSegmentEnd === null) {
             if (remainingText.length > 0) {
                 console.log("❌ Alignment failed: No segments found but remaining text exists.");
@@ -68,12 +68,12 @@ export class AudioSegmentProcessor {
         }
         console.log("🎯 Matched segments found, trimming audio if needed.");
         let startTimestamp: number = lastSegmentEnd;
-        
+
         const trimmedAudioFile: string | null = remainingText.length > 0 ? await cutAudioFile(audioFile, lastSegmentEnd) : null;
         if (trimmedAudioFile) {
             console.log("✂️ Audio trimmed:", trimmedAudioFile);
         }
-        
+
         return [trimmedAudioFile, remainingText, startTimestamp, matchedSegments];
     }
 
@@ -93,6 +93,14 @@ export class AudioSegmentProcessor {
                 ...word,
                 start: parseFloat((word.start + offset).toFixed(3)),
                 end: parseFloat((word.end + offset).toFixed(3)),
+                sequence: {
+                    start: parseFloat((word.start + offset).toFixed(3)),
+                    end: parseFloat((word.end + offset).toFixed(3)),
+                },
+                clip: {
+                    start: parseFloat((word.start).toFixed(3)),
+                    end: parseFloat((word.end).toFixed(3)),
+                },
             })),
         } as TextSegment;
     }
@@ -109,17 +117,17 @@ export class AudioSegmentProcessor {
             console.log("ℹ️ No expected text segments provided.");
             return [];
         }
-        
+
         console.log("🔄 Processing segments recursively...");
         const [trimmedAudio, remainingText, , segments] = await this.processAudioFile(audioFile, expectedTextSegments, language);
-        
+
         if (!trimmedAudio) {
             console.log("❌ Processing failed: No trimmed audio generated.");
             // throw new Error("Processing failed: no trimmed audio generated.");
 
             return [];
         }
-        
+
         let additionalSegments: TextSegment[] = [];
         if (remainingText.length > 0) {
             console.log("🔁 Continuing recursion with remaining text.", {
@@ -134,7 +142,7 @@ export class AudioSegmentProcessor {
                 additionalSegments = additionalSegments.map(segment => this.adjustSegmentTimes(segment, lastEndTime));
             }
         }
-        
+
         console.log("✅ Processing complete.");
         return segments.concat(additionalSegments);
     }

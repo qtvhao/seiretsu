@@ -17,6 +17,14 @@ export interface WordData {
     start: number;
     end: number;
     probability: number;
+    sequence: {
+        start: number;
+        end: number;
+    };
+    clip: {
+        start: number;
+        end: number;
+    };
 }
 
 export interface TranscriptSegment {
