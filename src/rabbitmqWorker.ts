@@ -92,6 +92,8 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
         const mappedSegments = segments.map(segment => ({
             words: segment.words.map(word => ({
                 word: word.word,
+                sequence: word.sequence,
+                clip: word.clip,
                 start: word.start,
                 end: word.end,
                 confidence: parseFloat(word.probability.toFixed(4)),
