@@ -57,25 +57,6 @@ export class AudioSegmentProcessor {
         const matcher = new BestSentenceMatcher(transcriptSegments, expectedTextSegments);
         let [matchedSegments, lastSegmentEnd, remainingText]: [TextSegment[], number | null, string[], any[]] = matcher.findBestMatch(matchThreshold);
 
-        matchedSegments = matchedSegments.map((matchedSegment: TextSegment) => {
-            return {
-                ...matchedSegment,
-                words: matchedSegment.words.map((word: WordData) => {
-                    return {
-                        ...word,
-                        clip: {
-                            start: word.start,
-                            end: word.end,
-                        },
-                        sequence: {
-                            start: word.start,
-                            end: word.end,
-                        },
-                    };
-                })
-            } as TextSegment;
-        })
-
         if (lastSegmentEnd === null) {
             if (remainingText.length > 0) {
                 console.log("❌ Alignment failed: No segments found but remaining text exists.");
@@ -114,14 +95,6 @@ export class AudioSegmentProcessor {
                 probability: parseFloat((word.probability).toFixed(3)),
                 start: parseFloat((word.start + offset).toFixed(3)),
                 end: parseFloat((word.end + offset).toFixed(3)),
-                sequence: {
-                    start: parseFloat((word.sequence.start + offset).toFixed(3)),
-                    end: parseFloat((word.sequence.end + offset).toFixed(3)),
-                },
-                clip: {
-                    start: parseFloat((word.clip.start).toFixed(3)),
-                    end: parseFloat((word.clip.end).toFixed(3)),
-                },
             })),
         } as TextSegment;
     }
