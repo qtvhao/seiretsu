@@ -55,7 +55,26 @@ export class AudioSegmentProcessor {
 
         const matchThreshold = parseFloat(process.env.MATCH_THRESHOLD || '0.1');
         const matcher = new BestSentenceMatcher(transcriptSegments, expectedTextSegments);
-        const [matchedSegments, lastSegmentEnd, remainingText]: [TextSegment[], number | null, string[], any[]] = matcher.findBestMatch(matchThreshold);
+        let [matchedSegments, lastSegmentEnd, remainingText]: [TextSegment[], number | null, string[], any[]] = matcher.findBestMatch(matchThreshold);
+
+        matchedSegments = matchedSegments.map((matchedSegment: TextSegment) => {
+            return {
+                ...matchedSegment,
+                words: matchedSegment.words.map((word: WordData) => {
+                    return {
+                        ...word,
+                        clip: {
+                            start: word.start,
+                            end: word.end,
+                        },
+                        sequence: {
+                            start: word.start,
+                            end: word.end,
+                        },
+                    };
+                })
+            } as TextSegment;
+        })
 
         if (lastSegmentEnd === null) {
             if (remainingText.length > 0) {
@@ -87,19 +106,21 @@ export class AudioSegmentProcessor {
     private adjustSegmentTimes(segment: TextSegment, offset: number): TextSegment {
         return {
             ...segment,
-            startTime: segment.startTime + offset,
-            endTime: segment.endTime + offset,
+            avgProbability: parseFloat((segment.avgProbability).toFixed(3)),
+            startTime: parseFloat((segment.startTime + offset).toFixed(3)),
+            endTime: parseFloat((segment.endTime + offset).toFixed(3)),
             words: segment.words.map(word => ({
                 ...word,
+                probability: parseFloat((word.probability).toFixed(3)),
                 start: parseFloat((word.start + offset).toFixed(3)),
                 end: parseFloat((word.end + offset).toFixed(3)),
                 sequence: {
-                    start: parseFloat((word.start + offset).toFixed(3)),
-                    end: parseFloat((word.end + offset).toFixed(3)),
+                    start: parseFloat((word.sequence.start + offset).toFixed(3)),
+                    end: parseFloat((word.sequence.end + offset).toFixed(3)),
                 },
                 clip: {
-                    start: parseFloat((word.start).toFixed(3)),
-                    end: parseFloat((word.end).toFixed(3)),
+                    start: parseFloat((word.clip.start).toFixed(3)),
+                    end: parseFloat((word.clip.end).toFixed(3)),
                 },
             })),
         } as TextSegment;
@@ -137,11 +158,10 @@ export class AudioSegmentProcessor {
             additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText, language, stack + 1);
 
             // Modify additionalSegments by adding the last segment's endTime
-            let lastEndTime = 0
             if (segments.length > 0) {
-                lastEndTime = segments[segments.length - 1].endTime;
+                const lastEndTime = segments[segments.length - 1].endTime;
+                additionalSegments = additionalSegments.map(segment => this.adjustSegmentTimes(segment, lastEndTime));
             }
-            additionalSegments = additionalSegments.map(segment => this.adjustSegmentTimes(segment, lastEndTime));
         }
 
         console.log("✅ Processing complete.");
