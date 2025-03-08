@@ -137,10 +137,11 @@ export class AudioSegmentProcessor {
             additionalSegments = await this.recursiveGetSegmentsFromAudioFile(trimmedAudio, remainingText, language, stack + 1);
 
             // Modify additionalSegments by adding the last segment's endTime
+            let lastEndTime = 0
             if (segments.length > 0) {
-                const lastEndTime = segments[segments.length - 1].endTime;
-                additionalSegments = additionalSegments.map(segment => this.adjustSegmentTimes(segment, lastEndTime));
+                lastEndTime = segments[segments.length - 1].endTime;
             }
+            additionalSegments = additionalSegments.map(segment => this.adjustSegmentTimes(segment, lastEndTime));
         }
 
         console.log("✅ Processing complete.");
