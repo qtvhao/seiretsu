@@ -50,6 +50,9 @@ const alignHandler = async (req: Request, res: Response): Promise<void> => {
         log("Generated correlationId", { correlationId, requestId: req.headers["x-request-id"] });
         
         const responsePromise = requestResponseService.addRequest(correlationId);
+        responsePromise.catch(e=>{
+            console.log(e)
+        })
         await sendMessageToQueue(config.kafka.topics.request, { referenceTexts, fileClaimCheck, correlationId, language });
         
         log("Sent message to queue", { correlationId, requestId: req.headers["x-request-id"] });
