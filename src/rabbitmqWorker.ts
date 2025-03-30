@@ -71,6 +71,12 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
     const tempDir = os.tmpdir(); // Get the system's temp directory
     const tempFilePath = path.join(tempDir, requestData.fileClaimCheck);
 
+    const responseData: ResponseData = {
+        ...requestData,
+        status: 'Processed',
+        timestamp: new Date().toISOString(),
+    };
+
     try {
         console.log(`⬇️ Downloading file '${requestData.fileClaimCheck}' to '${tempFilePath}'...`);
 
@@ -104,18 +110,19 @@ const processAndRespondToKafka = async (requestData: RequestData) => {
             confidence: segment.avgProbability
         }));
 
-        const responseData: ResponseData = {
-            ...requestData,
-            status: 'Processed',
-            timestamp: new Date().toISOString(),
+        await sendMessageToQueue(config.kafka.topics.response, {
+            ...responseData,
             segments: mappedSegments,
-        };
-
-        await sendMessageToQueue(config.kafka.topics.response, responseData);
+        });
 
         console.log(`📤 Sent response to Kafka with correlationId: ${responseData.correlationId}`);
     } catch (error) {
         console.error(`❌ Error processing file '${requestData.fileClaimCheck}':`, error);
+
+        await sendMessageToQueue(config.kafka.topics.response, {
+            ...responseData,
+            segments: null,
+        });
     }
 };
 
