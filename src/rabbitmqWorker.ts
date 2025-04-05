@@ -134,6 +134,7 @@ const startWorker = async (): Promise<void> => {
     try {
         console.log('🚀 Starting RabbitMQ Worker...');
 
+        await amqpChannel.assertQueue(config.rabbitmq.taskQueue, { durable: false });
         // Start consuming messages from RabbitMQ using the generic handler
         amqpChannel.consume(config.rabbitmq.taskQueue, rabbitMqMessageHandler(amqpChannel, validateMessage, processAndRespondToKafka));
 
