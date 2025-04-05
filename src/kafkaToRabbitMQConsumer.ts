@@ -66,7 +66,7 @@ export class KafkaToRabbitMQConsumer {
             }
 
             const queueName = config.rabbitmq.taskQueue;
-            await this.rabbitMQChannel.assertQueue(queueName, { durable: true });
+            await this.rabbitMQChannel.assertQueue(queueName, { durable: false });
 
             this.rabbitMQChannel.sendToQueue(queueName, Buffer.from(JSON.stringify(data)), { persistent: true });
 
